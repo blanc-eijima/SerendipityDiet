@@ -21,7 +21,7 @@ const Nav = ({ navClicked }) => {
             <a href='/about/'>About</a>
           </li>
           <li>
-            <a href='/column/'>Column</a>
+            <a href='/category/column/'>Column</a>
           </li>
           <li>
             <a href='/toiawase/'>Contact</a>

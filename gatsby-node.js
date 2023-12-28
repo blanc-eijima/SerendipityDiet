@@ -59,7 +59,7 @@ exports.createPages = async ({ graphql, actions }) => {
       (edge) => edge.node.category && edge.node.category.id === node.categoryId // カテゴリーが存在する場合にのみ追加
     );
 
-    const postsPerPage = 10; // 1ページあたりの記事数
+    const postsPerPage = 12; // 1ページあたりの記事数
     const numPages = Math.ceil(posts.length / postsPerPage);
 
     // ページンググループを考慮してカテゴリーページを生成

@@ -969,6 +969,9 @@ a:hover {
 #column li a:hover {
   color: #ff003b;
 }
+#column li a time {
+  margin-right: 10px;
+}
 
 .cat_tag {
   display: inline-block;
@@ -1456,10 +1459,10 @@ a:hover {
 .post_list {
   display: flex;
   flex-wrap: wrap;
+  gap: 20px;
 }
 .post_box {
-  width: calc(100% / 4);
-  padding: 10px;
+  width: calc((100% - 20px * 3) / 4);
 }
 .post_thumb {
   width: 100%;
@@ -1473,7 +1476,7 @@ a:hover {
 .thumb_img::before {
   content: '';
   display: block;
-  padding-top: 50%;
+  padding-top: 75%;
 }
 .thumb_img img {
   position: absolute;
@@ -1689,9 +1692,61 @@ textarea:focus::placeholder {
   color: transparent;
 }
 
+.posts_box {
+  .eyecatch_img {
+    width: 100%;
+    margin: 20px 0;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
+
 .post_main_box {
   img {
     max-width: 100%;
     height: auto;
+  }
+  ul {
+    margin: 20px 0;
+    padding-left: 35px;
+    li {
+      list-style-type: disc;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.pager {
+  padding: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #3b3b3b;
+    text-decoration: none;
+    margin: 5px;
+    font-size: 1.2rem;
+    &:hover {
+      background-color: #ff003b;
+    }
+    &.prev,
+    &.next {
+      width: 80px;
+    }
+    &.current {
+      background-color: #ff003b;
+      color: #fff;
+    }
   }
 }

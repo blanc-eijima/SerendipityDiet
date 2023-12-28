@@ -27,6 +27,11 @@ const PostPage = ({ data }) => {
               <a href={'/category/' + data.microcmsPosts.category.id + '/'}>{data.microcmsPosts.category.id}</a>
             </li>
           </ul>
+          {data.microcmsPosts.eyecatch && (
+            <div className='eyecatch_img'>
+              <img src={data.microcmsPosts.eyecatch.url + '?fm=webp'} width={data.microcmsPosts.eyecatch.width} height={data.microcmsPosts.eyecatch.height} alt={data.microcmsPosts.title + 'サムネイル画像'} loading='lazy' />
+            </div>
+          )}
           <div
             className='post_main_box'
             dangerouslySetInnerHTML={{

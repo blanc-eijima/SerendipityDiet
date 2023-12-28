@@ -17,8 +17,8 @@ const TopColumn = () => {
     query {
       allMicrocmsPosts(sort: { date: DESC }, limit: 5) {
         nodes {
-          date(formatString: "YYYY年MM月DD日")
-          updatedAt(formatString: "YYYY年MM月DD日")
+          date(formatString: "YYYY.MM.DD")
+          updatedAt(formatString: "YYYY.MM.DD")
           createdAt(formatString: "YYYY-MM-DDTHH:MM")
           title
           postsId
