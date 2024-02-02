@@ -7,7 +7,7 @@
 
 html,
 body {
-  font-family: 'Montserrat', 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+  font-family: "Montserrat", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
 
   min-width: 100%;
   min-height: 100%;
@@ -86,9 +86,9 @@ ol {
   list-style: none;
 }
 
-input[type='text'],
-input[type='tel'],
-input[type='email'],
+input[type="text"],
+input[type="tel"],
+input[type="email"],
 textarea {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1138,8 +1138,8 @@ a:hover {
   }
 }
 .silver_title:after {
-  background-image: url('../images/silver_icon.png');
-  content: '';
+  background-image: url("../images/silver_icon.png");
+  content: "";
   width: 100px;
   height: 100px;
   background-size: cover;
@@ -1150,8 +1150,8 @@ a:hover {
   margin-left: 10px;
 }
 .gold_title:after {
-  background-image: url('../images/gold_icon.png');
-  content: '';
+  background-image: url("../images/gold_icon.png");
+  content: "";
   width: 100px;
   height: 100px;
   background-size: cover;
@@ -1162,8 +1162,8 @@ a:hover {
   margin-left: 10px;
 }
 .platinum_title:after {
-  background-image: url('../images/platinum_icon.png');
-  content: '';
+  background-image: url("../images/platinum_icon.png");
+  content: "";
   width: 100px;
   height: 100px;
   background-size: cover;
@@ -1354,7 +1354,7 @@ a:hover {
   padding: 0;
   border-top: 1px solid #000;
   border-left: 0px solid #000;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
 }
 
 .legal_notice th {
@@ -1392,7 +1392,7 @@ a:hover {
   padding: 0;
   border-top: 1px solid #000;
   border-left: 0px solid #000;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
 }
 
 .form th {
@@ -1440,7 +1440,7 @@ a:hover {
     word-break: break-all;
     word-wrap: break-all;
   }
-  input[type='email'] {
+  input[type="email"] {
     width: 100%;
   }
   textarea {
@@ -1474,7 +1474,7 @@ a:hover {
   padding: 0;
 }
 .thumb_img::before {
-  content: '';
+  content: "";
   display: block;
   padding-top: 75%;
 }
@@ -1653,12 +1653,12 @@ a:hover {
   background-size: 100% 100%;
 }
 /* 入力エラーのスタイル */
-input[type='text']:required,
-input[type='text']:invalid,
-input[type='email']:required,
-input[type='email']:invalid,
-input[type='tel']:required,
-input[type='tel']:invalid,
+input[type="text"]:required,
+input[type="text"]:invalid,
+input[type="email"]:required,
+input[type="email"]:invalid,
+input[type="tel"]:required,
+input[type="tel"]:invalid,
 select:required,
 textarea:required {
   color: #630015;
@@ -1667,9 +1667,9 @@ textarea:required {
 }
 
 /* 入力値が正常な時のスタイル */
-input[type='text']:valid,
-input[type='email']:valid,
-input[type='tel']:valid,
+input[type="text"]:valid,
+input[type="email"]:valid,
+input[type="tel"]:valid,
 select:valid,
 textarea:valid {
   color: #333;
@@ -1749,4 +1749,9 @@ textarea:focus::placeholder {
       color: #fff;
     }
   }
+}
+
+.paypal-bt {
+  width: 500px;
+  margin: 0 auto;
 }
