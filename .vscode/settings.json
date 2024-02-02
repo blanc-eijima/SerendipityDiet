@@ -1,0 +1,6 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.htmlWhitespaceSensitivity": "ignore",
+  "prettier.printWidth": 2048,
+  "editor.formatOnSave": true
+}
