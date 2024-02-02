@@ -12,19 +12,19 @@ const Nav = ({ navClicked }) => {
       <nav className={hNavClassName}>
         <ul className='nav'>
           <li>
-            <a href='/'>Home</a>
+            <Link to='/'>Home</Link>
           </li>
           <li>
-            <a href='/plan/'>Plan</a>
+            <Link to='/plan/'>Plan</Link>
           </li>
           <li>
-            <a href='/about/'>About</a>
+            <Link to='/about/'>About</Link>
           </li>
           <li>
-            <a href='/category/column/'>Column</a>
+            <Link to='/category/column/'>Column</Link>
           </li>
           <li>
-            <a href='/toiawase/'>Contact</a>
+            <Link to='/toiawase/'>Contact</Link>
           </li>
         </ul>
 
@@ -45,9 +45,9 @@ const Nav = ({ navClicked }) => {
             </a>
           </li>
           <li>
-            <a href='/toiawase/' className='mail'>
+            <Link to='/toiawase/' className='mail'>
               <FontAwesomeIcon icon={faEnvelope} />
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
