@@ -1,37 +1,37 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import '@fortawesome/fontawesome-svg-core/styles.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import Layout from '../components/Layout';
-import Section from '../components/Section';
-import Seo from '../components/Seo';
+import React from "react";
+import { Link } from "gatsby";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import Layout from "../components/Layout";
+import Section from "../components/Section";
+import Seo from "../components/Seo";
 const Toiawase = () => {
   return (
     <>
       <Layout>
-        <Section id='transactions' svg={true} title='Contact' sub={true}>
+        <Section id="transactions" svg={true} title="Contact" sub={true}>
           <h1>Contact</h1>
 
           <h2>究極のダイエットをお手伝いするために無料電話相談を承ります。</h2>
           <h3>まずはお気軽に、お問い合わせ下さい。</h3>
           <p>できるだけ早く対応させていただきます。</p>
-          <ul class='tel_num'>
+          <ul class="tel_num">
             <li>
-              <a href='mailto:contact@serendipity-diet.com'>
+              <a href="mailto:contact@serendipity-diet.com">
                 <FontAwesomeIcon icon={faEnvelope} />
                 contact@serendipity-ultimatediet.com
               </a>
             </li>
             <li>
-              <a href='tel:088-855-7879'>
+              <a href="tel:088-855-7879">
                 <FontAwesomeIcon icon={faPhone} />
                 088-855-7879
               </a>
             </li>
           </ul>
           <p>お問い合わせの際は、以下プライバシーポリシーに同意いただいた後、表示される応募フォームへご入力お願い致します。</p>
-          <div className='privacypolicy'>
+          <div className="privacypolicy">
             <h4>1.個人情報の取得について</h4>
 
             <p>当方は、適法かつ公正な手段によって個人情報を取得致します。</p>
@@ -62,16 +62,16 @@ const Toiawase = () => {
 
             <p>当方は、本人が自己の個人情報について、開示・訂正・利用停止・消去等を求める要求ある場合には、本人確認の上、適切に対処します。</p>
           </div>
-          <ul class='bt_list'>
-            <li class='center w20p'>
-              <a class='bt01' href='/toiawase-form/'>
+          <ul class="bt_list">
+            <li class="center w20p">
+              <Link class="bt01" to="/toiawase-form/">
                 同意する
-              </a>
+              </Link>
             </li>
-            <li class='center w20p'>
-              <a class='bt01' href='/'>
+            <li class="center w20p">
+              <Link class="bt01" to="/">
                 同意しない
-              </a>
+              </Link>
             </li>
           </ul>
         </Section>
@@ -81,8 +81,8 @@ const Toiawase = () => {
 };
 export const Head = () => (
   <>
-    <body id='pagetop' />
-    <Seo title='Contact' />
+    <body id="pagetop" />
+    <Seo title="Contact" />
   </>
 );
 export default Toiawase;

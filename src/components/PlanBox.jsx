@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "gatsby";
 const PlanBox = ({ course, title, children, price }) => {
   const imageUrl = `/images/course_${course}.jpg`;
 
@@ -12,13 +12,13 @@ const PlanBox = ({ course, title, children, price }) => {
           <h4>月額 {price}円</h4>
           {children}
           <p className="center">
-            <a href="/mousikomi-form/" className="bt01" role="button">
+            <Link to="/mousikomi-form/" className="bt01" role="button">
               お申し込みフォームから今すぐ申し込む
-            </a>
+            </Link>
           </p>
         </div>
         <div className="plan_r">
-          <img src={imageUrl} width={480} height={320} />
+          <img src={imageUrl} width={480} height={320} alt={title + "イメージ画像"} />
         </div>
       </div>
     </>
