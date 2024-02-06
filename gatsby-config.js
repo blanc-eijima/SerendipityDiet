@@ -16,8 +16,8 @@ module.exports = {
     keyword: "オンラインダイエット,ダイエットプログラム,セレンディピティ,栄養管理,運動プラン,パーソナルコーチ,ダイエットコーチ,コーチング,健康的なライフスタイル,持続可能なダイエット",
     description: "オンラインダイエットプログラム「セレンディピティ」で理想の体型を目指しましょう。効率的な栄養管理、運動プラン、サポートにより、持続可能なダイエットを実現。あなたに合ったオンラインダイエットで美しく健康的なライフスタイルを手に入れましょう。",
     image: "/images/ogp.jpg",
-    url: "https://serendipity-ultimatediet.com/",
-    siteUrl: "https://serendipity-ultimatediet.com/",
+    url: "https://serendipity-ultimatediet.com",
+    siteUrl: "https://serendipity-ultimatediet.com",
   },
   plugins: [
     `gatsby-plugin-sharp`,
