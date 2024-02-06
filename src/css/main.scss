@@ -1113,6 +1113,9 @@ a:hover {
     flex-wrap: wrap;
     flex-direction: column;
     position: relative;
+    @media not screen and (min-width: 1025px) {
+      width: 100%;
+    }
 
     h3 {
       display: inline-block;
@@ -1122,11 +1125,17 @@ a:hover {
   &:nth-child(odd) {
     .plan_l {
       padding-right: 20px;
+      @media not screen and (min-width: 1025px) {
+        padding-right: 0;
+      }
     }
   }
   &:nth-child(even) {
     .plan_l {
       padding-left: 20px;
+      @media not screen and (min-width: 1025px) {
+        padding-left: 0;
+      }
     }
   }
   .plan_r {
@@ -1135,6 +1144,9 @@ a:hover {
     flex-wrap: wrap;
     flex-direction: column;
     position: relative;
+    @media not screen and (min-width: 1025px) {
+      width: 100%;
+    }
   }
 }
 .silver_title:after {
@@ -1463,6 +1475,12 @@ a:hover {
 }
 .post_box {
   width: calc((100% - 20px * 3) / 4);
+  @media not screen and (min-width: 769px) {
+    width: calc((100% - 20px * 1) / 2);
+  }
+  @media not screen and (min-width: 668px) {
+    width: 100%;
+  }
 }
 .post_thumb {
   width: 100%;
@@ -1553,17 +1571,7 @@ a:hover {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .post_box {
-    width: calc(100% / 2);
-    padding: 1%;
-  }
-}
 @media screen and (max-width: 1024px) {
-  .post_box {
-    width: calc(100% / 2);
-    padding: 1%;
-  }
   .swiper {
     width: 100%;
   }
@@ -1752,6 +1760,8 @@ textarea:focus::placeholder {
 }
 
 .paypal-bt {
-  width: 500px;
-  margin: 0 auto;
+  @media screen and (min-width: 1201px) {
+    width: 500px;
+    margin: 0 auto;
+  }
 }
