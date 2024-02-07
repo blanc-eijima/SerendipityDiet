@@ -67,10 +67,17 @@ module.exports = {
     },
     `gatsby-plugin-sitemap`,
     {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/sitemap.xml`,
+        // 他のオプションが必要な場合はここに追加します
+      },
+    },
+    {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
-        host: "https://serendipity-ultimatediet.com", // サイトのベースURLを指定
-        sitemap: "https://serendipity-ultimatediet.com/sitemap-index.xml", // サイトマップのURLを指定
+        host: "https://serendipity-ultimatediet.com",
+        sitemap: "https://serendipity-ultimatediet.com/sitemap.xml", // サイトマップのURLを指定
         policy: [{ userAgent: "*", allow: "/" }],
       },
     },
