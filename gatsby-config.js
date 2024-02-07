@@ -65,7 +65,7 @@ module.exports = {
         siteUrl: `https://serendipity-ultimatediet.com/`,
       },
     },
-    `gatsby-plugin-sitemap`,
+
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
