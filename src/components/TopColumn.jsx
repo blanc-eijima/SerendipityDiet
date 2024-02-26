@@ -1,18 +1,18 @@
-import React from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
-import dayjs from 'dayjs';
-import 'dayjs/locale/ja';
-import utc from 'dayjs/plugin/utc';
-import timezone from 'dayjs/plugin/timezone';
+import React from "react";
+import { Link, useStaticQuery, graphql } from "gatsby";
+import dayjs from "dayjs";
+import "dayjs/locale/ja";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
-dayjs.tz.setDefault('Asia/Tokyo');
+dayjs.tz.setDefault("Asia/Tokyo");
 
 const MAX_CONTENT_LENGTH = 100; // 最大文字数を設定してください
 
 const TopColumn = () => {
-  dayjs.locale('ja');
+  dayjs.locale("ja");
   const data = useStaticQuery(graphql`
     query {
       allMicrocmsPosts(sort: { date: DESC }, limit: 5) {
@@ -37,11 +37,11 @@ const TopColumn = () => {
       <ul>
         {posts.map((node) => (
           <li key={node.postsId}>
-            <div className={'cat_tag ' + node.category.id}>
-              <a href={'/category/ ' + node.category.id + '/'}>Column</a>
+            <div className={"cat_tag " + node.category.id}>
+              <a href={"/category/" + node.category.id + "/"}>Column</a>
             </div>
             <br />
-            <Link href={'/posts/' + node.postsId + '/'}>
+            <Link href={"/posts/" + node.postsId + "/"}>
               <time dateTime={node.date}>{node.date}</time>
               {node.title}
             </Link>
@@ -54,8 +54,8 @@ const TopColumn = () => {
 // HTMLタグを削除する関数
 function stripHTML(html) {
   if (html) {
-    return html.replace(/<[^>]*>/g, '');
+    return html.replace(/<[^>]*>/g, "");
   }
-  return '';
+  return "";
 }
 export default TopColumn;
