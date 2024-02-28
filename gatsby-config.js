@@ -93,6 +93,11 @@ module.exports = {
         ErrorDocument: `          
           ErrorDocument 404 /error_pages/404.html
         `,
+        custom: `            
+        RewriteRule ^contact/(.*)$ https://serendipity-ultimatediet.com/toiawase/$1 [L,R=301]
+        RewriteRule ^contact-2/(.*)$ https://serendipity-ultimatediet.com//toiawase-form/$1 [L,R=301]
+        RewriteRule ^category/%20column/(.*)$ https://serendipity-ultimatediet.com/category/column/$1 [L,R=301]
+        `,
       },
     },
   ],
