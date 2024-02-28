@@ -1,16 +1,17 @@
-import React from 'react';
+import React from "react";
+import { Link } from "gatsby";
 
-import Layout from '../components/Layout';
-import Section from '../components/Section';
-import Seo from '../components/Seo';
+import Layout from "../components/Layout";
+import Section from "../components/Section";
+import Seo from "../components/Seo";
 
 const Transactions = () => {
   return (
     <>
       <Layout>
-        <Section id='transactions' svg={true} title='特定商取引法に基づく表示' sub={true}>
+        <Section id="transactions" svg={true} title="特定商取引法に基づく表示" sub={true}>
           <h1>特定商取引法に基づく表示</h1>
-          <table className='legal_notice'>
+          <table className="legal_notice">
             <tbody>
               <tr>
                 <th>役務提供事業者</th>
@@ -36,7 +37,9 @@ const Transactions = () => {
               </tr>
               <tr>
                 <th>メールアドレス</th>
-                <td>contact@serendipity-ultimatediet.com</td>
+                <td>
+                  <a href="mailto:contact@serendipity-ultimatediet.com">contact@serendipity-ultimatediet.com</a>
+                </td>
               </tr>
               <tr>
                 <th>役務の条件に関する事項</th>
@@ -45,7 +48,7 @@ const Transactions = () => {
               <tr>
                 <th>役務の対価</th>
                 <td>
-                  <a href='/plan/'>料金ページ</a>
+                  <Link to="/plan/">料金ページ</Link>
                 </td>
               </tr>
               <tr>
@@ -77,8 +80,8 @@ const Transactions = () => {
 };
 export const Head = () => (
   <>
-    <body id='pagetop' />
-    <Seo title='特定商取引法に基づく表示' />
+    <body id="pagetop" />
+    <Seo title="特定商取引法に基づく表示" />
   </>
 );
 export default Transactions;

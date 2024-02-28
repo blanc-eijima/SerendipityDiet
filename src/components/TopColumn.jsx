@@ -38,10 +38,10 @@ const TopColumn = () => {
         {posts.map((node) => (
           <li key={node.postsId}>
             <div className={"cat_tag " + node.category.id}>
-              <a href={"/category/" + node.category.id + "/"}>Column</a>
+              <Link to={"/category/" + node.category.id + "/"}>Column</Link>
             </div>
             <br />
-            <Link href={"/posts/" + node.postsId + "/"}>
+            <Link to={"/posts/" + node.postsId + "/"}>
               <time dateTime={node.date}>{node.date}</time>
               {node.title}
             </Link>

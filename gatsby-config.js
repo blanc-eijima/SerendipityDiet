@@ -69,16 +69,30 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        output: `/sitemap.xml`,
-        // 他のオプションが必要な場合はここに追加します
+        entryLimit: 50000,
+        resolveSiteUrl: () => "https://serendipity-ultimatediet.com",
       },
     },
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
-        host: "https://serendipity-ultimatediet.com",
-        sitemap: "https://serendipity-ultimatediet.com/sitemap.xml", // サイトマップのURLを指定
+        host: "https://serendipity-ultimatediet.com", // サイトのベースURLを指定
+        sitemap: "https://serendipity-ultimatediet.com/sitemap-index.xml", // サイトマップのURLを指定
         policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
+    "gatsby-plugin-netlify",
+    {
+      resolve: "gatsby-plugin-htaccess",
+      options: {
+        RewriteBase: "/",
+        https: true,
+        www: false,
+        SymLinksIfOwnerMatch: true,
+        host: "serendipity-ultimatediet.com",
+        ErrorDocument: `          
+          ErrorDocument 404 /error_pages/404.html
+        `,
       },
     },
   ],
