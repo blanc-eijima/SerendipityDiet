@@ -179,10 +179,11 @@ select {
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
+      align-items: center;
       li {
         padding: 0 5px;
         a {
-          padding: 10px;
+          padding: 0;
           display: flex;
           box-sizing: border-box;
           align-items: center;
@@ -194,6 +195,7 @@ select {
           .fa-envelope {
             font-size: 1.6rem;
             color: #fff;
+            margin: 10px;
           }
         }
       }
@@ -544,30 +546,43 @@ footer {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: flex-end;
+  li {
+    padding: 0 5px;
+    margin: 5px;
+    a {
+      padding: 10px;
+      display: flex;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+      background-color: #3b3b3b;
+      border-radius: 50px;
+      &:hover {
+        background-color: #541f2c;
+      }
+      i {
+        font-size: 100%;
+        color: #fff;
+      }
+    }
+    &.f_line_icon {
+      a {
+        padding: 0;
+        background-color: initial;
+        img {
+          transition: all 0.3s;
+        }
+        &:hover {
+          img {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
 }
-.foot_sns_bt li {
-  padding: 0 5px;
-  margin: 5px;
-}
-.foot_sns_bt a {
-  padding: 10px;
-  display: flex;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
-  transition: 0.3s;
-}
-.foot_sns_bt a i {
-  font-size: 100%;
-  color: #fff;
-}
-.foot_sns_bt li a {
-  background-color: #3b3b3b;
-  border-radius: 50px;
-}
-.foot_sns_bt li a:hover {
-  background-color: #541f2c;
-}
+
 .foot_sns_bt li a:hover i {
   color: #ff003b;
 }
@@ -1021,9 +1036,16 @@ a:hover {
     top: -30%;
     left: -15%;
     z-index: 0;
+    @media screen and (max-width: 1024px) {
+      overflow: hidden;
+      width: 100%;
+      z-index: 0;
+      left: 0;
+    }
     @media screen and (max-width: 768px) {
       top: -60%;
       right: 0;
+      left: initial;
     }
     svg {
       fill: #ff003b;

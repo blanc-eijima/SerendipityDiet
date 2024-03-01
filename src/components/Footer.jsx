@@ -2,7 +2,7 @@ import React from "react";
 
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXTwitter, faFacebook } from "@fortawesome/free-brands-svg-icons";
+import { faXTwitter, faFacebook, faLine } from "@fortawesome/free-brands-svg-icons";
 import FootSvg from "./FootSvg";
 import { Link } from "gatsby";
 
@@ -31,6 +31,11 @@ const Footer = () => {
                   <li>
                     <a href="https://www.facebook.com/profile.php?id=100090480733124" className="fb" target="_blank" rel="noopener noreferrer">
                       <FontAwesomeIcon icon={faFacebook} />
+                    </a>
+                  </li>
+                  <li className="f_line_icon">
+                    <a href="https://lin.ee/qdYYS9V" target="_blank" rel="noopener noreferrer">
+                      <img src="/images/line_tuika.png" alt="友だち追加" height="36" border="0" />
                     </a>
                   </li>
                 </ul>
