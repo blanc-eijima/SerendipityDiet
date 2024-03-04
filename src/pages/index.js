@@ -62,7 +62,7 @@ const index = () => {
             <div className="main_diet_r">
               <h2>栄養学 ワークアウト モチベーション</h2>
               <h3>
-                <span className="txt20">究極の個別オンライン指導北海道から沖縄県まで全国対応</span>
+                <span className="txt20">究極の個別オンラインダイエット指導　全国対応</span>
                 <br />
                 セレンディピティ ダイエット
               </h3>
@@ -78,8 +78,8 @@ const index = () => {
               <img src="/images/main_diet_02.jpg" alt="" />
             </div>
             <div className="main_diet_r">
-              <h2>あなたが得るもの</h2>
-              <h3>このプログラムで解消できること</h3>
+              <h2>オンラインダイエットプログラムで得られるメリット</h2>
+              <h3>このオンラインダイエットプログラムで解消できる悩み</h3>
               <p>以下のような悩みをお持ちの方が理想の体型へと変わっていくためのサポートをさせていただきます。</p>
               <ul className="list01">
                 <li>
