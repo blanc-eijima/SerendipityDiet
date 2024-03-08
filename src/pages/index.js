@@ -62,7 +62,7 @@ const index = () => {
             <div className="main_diet_r">
               <h2>栄養学 ワークアウト モチベーション</h2>
               <h3>
-                <span className="txt20">究極の個別オンラインダイエット指導　全国対応</span>
+                <span className="txt20">究極の個別オンラインダイエットコーチング　全国対応</span>
                 <br />
                 セレンディピティ ダイエット
               </h3>
