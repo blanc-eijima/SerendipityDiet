@@ -48,7 +48,7 @@ export const Head = ({ data }) => (
   <>
     <Seo
       title2={`オンラインダイエット | ${data.microcmsPosts.title}`}
-      description={data.microcmsPosts.summary}
+      description={data.microcmsPosts.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "").slice(0, 120)}
     />
   </>
 );
