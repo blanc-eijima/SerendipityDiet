@@ -46,7 +46,7 @@ const PostPage = ({ data }) => {
 
 export const Head = ({ data }) => (
   <>
-    <Seo title2={data.microcmsPosts.title} />
+    <Seo title2={data.microcmsPosts.title} description={data.microcmsPosts.title} />
   </>
 );
 
