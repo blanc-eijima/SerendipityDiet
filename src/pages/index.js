@@ -183,7 +183,7 @@ const Index = () => {
         </Section>
 
         <Section id="qa" className="qa-section">
-          <h2 className="qa-title">Q&A</h2>
+          <h2 className="qa-title">オンラインダイエットQ&A</h2>
           <div className="qa-container">
             <div className="qa-item">
               <button
@@ -321,7 +321,7 @@ const Index = () => {
         </Section>
 
         <Section id="column">
-          <h2>Column</h2>
+          <h2>オンラインダイエットColumn</h2>
           <TopColumn />
         </Section>
       </Layout>
