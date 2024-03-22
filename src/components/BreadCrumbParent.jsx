@@ -7,26 +7,21 @@ const BreadCrumbParent = (props) => {
   const siteurl = "https://serendipity-ultimatediet.com/";
   return (
     <>
-      <ul id="breadcrumb" className="breadcrumb__list" itemscope itemtype="https://schema.org/BreadcrumbList">
-        <li className="breadcrumb__item" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-          <Link to={siteurl} itemProp="item">
-            <span itemProp="name">ホーム</span>
-          </Link>
-          <meta itemProp="position" content="1" />
-        </li>
-        <li className="breadcrumb__item" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-          <FontAwesomeIcon icon={faAngleRight} />
-          <Link to={siteurl + props.slug + "/"} itemProp="item">
-            <span>{props.parentTitle}</span>
-          </Link>
-          <meta itemProp="position" content="2" />
-        </li>
-        <li className="breadcrumb__item" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-          <FontAwesomeIcon icon={faAngleRight} />
-          <span>{props.title}</span>
-          <meta itemProp="position" content="3" />
-        </li>
-      </ul>
+      <nav aria-label="Breadcrumb" id="breadcrumb">
+        <ul>
+          <li>
+            <Link to={siteurl}>ホーム</Link>
+          </li>
+          <li>
+            <FontAwesomeIcon icon={faAngleRight} />
+            <Link to={siteurl + props.slug + "/"}>{props.parentTitle}</Link>
+          </li>
+          <li>
+            <FontAwesomeIcon icon={faAngleRight} />
+            {props.title}
+          </li>
+        </ul>
+      </nav>
     </>
   );
 };
