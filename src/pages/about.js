@@ -2,7 +2,6 @@ import React from "react";
 import Layout from "../components/Layout";
 import Section from "../components/Section";
 import Seo from "../components/Seo";
-const pageDescription = "セレンディピティダイエットのオンラインダイエットコーチ、安永貴裕について紹介します。ボディメイクの専門家として、あなたに寄り添い、効果的なダイエット方法をオンラインでアドバイスします。美しいボディラインを目指すあなたを全力でサポートします。";
 const About = () => {
   return (
     <>
