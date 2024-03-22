@@ -4,13 +4,73 @@ import { Link } from "gatsby";
 import Layout from "../components/Layout";
 import Section from "../components/Section";
 import Seo from "../components/Seo";
+const pagemeta = {
+  title: `特定商取引法に基づく表示 | オンラインダイエット｜最強に痩せる食事と運動を指導する究極のプログラム`, //このページのタイトル
+  description: `究極オンラインダイエット指導。簡単でも効率的に痩せていける食事指導。60分の運動でも痩せやすい身体を創るトレーニング指導。食事と運動の効果を更に向上させる生活テクニックを伝授。`, //このページのディスクリプション
+  keyword: `オンラインダイエット,ダイエットプログラム,セレンディピティ,栄養管理,運動プラン,パーソナルコーチ,ダイエットコーチ,コーチング,健康的なライフスタイル,持続可能なダイエット`,
+  subtitle: `特定商取引法に基づく表示`, //このページの見出し
+  slug: `transactions`, //このページのslug
+};
+const siteurl = "https://serendipity-ultimatediet.com/";
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          item: `${siteurl}`,
+          name: "ホーム",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          item: `${siteurl}${pagemeta.slug}/`,
+          name: `${pagemeta.subtitle}`,
+        },
+      ],
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${siteurl}${pagemeta.slug}/`,
+      url: `${siteurl}${pagemeta.slug}/`,
+      name: `${pagemeta.title}`,
+      description: `${pagemeta.description}`,
+      inLanguage: "ja",
+      isPartOf: { "@id": `${siteurl}#website` },
+      breadcrumb: { "@id": `${siteurl}#breadcrumblist` },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteurl}#website`,
+      url: `${siteurl}`,
+      name: `オンラインダイエット｜最強に痩せる食事と運動を指導する究極のプログラム`,
+      description: `究極オンラインダイエット指導。簡単でも効率的に痩せていける食事指導。60分の運動でも痩せやすい身体を創るトレーニング指導。食事と運動の効果を更に向上させる生活テクニックを伝授。`,
+      publisher: {
+        "@type": "Organization",
+        name: "SerendipityUltimatediet",
+        url: `${siteurl}`,
+      },
+      inLanguage: "ja",
+    },
+  ],
+};
 
+export const Head = () => (
+  <>
+    <body id="pagetop" />
+    <Seo title2={pagemeta.title} description={pagemeta.description} keyword={pagemeta.keyword} />
+    <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+  </>
+);
 const Transactions = () => {
   return (
     <>
       <Layout>
-        <Section id="transactions" svg={true} title="特定商取引法に基づく表示" sub={true}>
-          <h1>特定商取引法に基づく表示</h1>
+        <Section id={pagemeta.slug} svg={true} title={pagemeta.subtitle} sub={true}>
+          <h1>{pagemeta.subtitle}</h1>
           <table className="legal_notice">
             <tbody>
               <tr>
@@ -78,10 +138,5 @@ const Transactions = () => {
     </>
   );
 };
-export const Head = () => (
-  <>
-    <body id="pagetop" />
-    <Seo title="特定商取引法に基づく表示" />
-  </>
-);
+
 export default Transactions;

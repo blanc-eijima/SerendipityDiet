@@ -5,6 +5,68 @@ import Section from "../components/Section";
 import PlanBox from "../components/PlanBox";
 import Seo from "../components/Seo";
 
+const pagemeta = {
+  title: `PLAN | オンラインダイエット｜最強に痩せる食事と運動を指導する究極のプログラム`, //このページのタイトル
+  description: `究極オンラインダイエット指導。簡単でも効率的に痩せていける食事指導。60分の運動でも痩せやすい身体を創るトレーニング指導。食事と運動の効果を更に向上させる生活テクニックを伝授。`, //このページのディスクリプション
+  keyword: `オンラインダイエット,ダイエットプログラム,セレンディピティ,栄養管理,運動プラン,パーソナルコーチ,ダイエットコーチ,コーチング,健康的なライフスタイル,持続可能なダイエット`,
+  subtitle: `PLAN`, //このページの見出し
+  slug: `plan`, //このページのslug
+};
+const siteurl = "https://serendipity-ultimatediet.com/";
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          item: `${siteurl}`,
+          name: "ホーム",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          item: `${siteurl}${pagemeta.slug}/`,
+          name: `${pagemeta.subtitle}`,
+        },
+      ],
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${siteurl}${pagemeta.slug}/`,
+      url: `${siteurl}${pagemeta.slug}/`,
+      name: `${pagemeta.title}`,
+      description: `${pagemeta.description}`,
+      inLanguage: "ja",
+      isPartOf: { "@id": `${siteurl}#website` },
+      breadcrumb: { "@id": `${siteurl}#breadcrumblist` },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteurl}#website`,
+      url: `${siteurl}`,
+      name: `オンラインダイエット｜最強に痩せる食事と運動を指導する究極のプログラム`,
+      description: `究極オンラインダイエット指導。簡単でも効率的に痩せていける食事指導。60分の運動でも痩せやすい身体を創るトレーニング指導。食事と運動の効果を更に向上させる生活テクニックを伝授。`,
+      publisher: {
+        "@type": "Organization",
+        name: "SerendipityUltimatediet",
+        url: `${siteurl}`,
+      },
+      inLanguage: "ja",
+    },
+  ],
+};
+
+export const Head = () => (
+  <>
+    <body id="pagetop" />
+    <Seo title2={pagemeta.title} description={pagemeta.description} keyword={pagemeta.keyword} />
+    <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+  </>
+);
+
 const Plan = () => {
   useEffect(() => {
     const script = document.createElement("script");
@@ -75,8 +137,8 @@ const Plan = () => {
 
   return (
     <Layout>
-      <Section title="PLAN" sub={true} id="plan" svg={true}>
-        <h1>PLAN</h1>
+      <Section title={pagemeta.subtitle} sub={true} id={pagemeta.slug} svg={true}>
+        <h1>{pagemeta.subtitle}</h1>
         <PlanBox course="silver" title="シルバーコース" price="35,000">
           <p>
             現状をヒヤリングして、
@@ -112,12 +174,5 @@ const Plan = () => {
     </Layout>
   );
 };
-
-export const Head = () => (
-  <>
-    <body id="pagetop" />
-    <Seo title="Plan" />
-  </>
-);
 
 export default Plan;

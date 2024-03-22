@@ -14,6 +14,62 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.tz.setDefault("Asia/Tokyo");
 
+const getJsonLd = (data, siteMetadata) => ({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          item: `${siteMetadata.siteUrl}`,
+          name: "ホーム",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          item: `${siteMetadata.siteUrl}posts/${data.microcmsPosts.postsId}/`,
+          name: `${data.microcmsPosts.title}`,
+        },
+      ],
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${siteMetadata.siteUrl}posts/${data.microcmsPosts.postsId}/`,
+      url: `${siteMetadata.siteUrl}posts/${data.microcmsPosts.postsId}/`,
+      name: data.microcmsPosts.title,
+      description: siteMetadata.defaultDescription,
+      inLanguage: "ja",
+      isPartOf: { "@id": `${siteMetadata.siteUrl}#website` },
+      breadcrumb: { "@id": `${siteMetadata.siteUrl}#breadcrumblist` },
+      datePublished: data.microcmsPosts.publishedAt,
+      dateModified: data.microcmsPosts.updatedAt,
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteMetadata.siteUrl}#website`,
+      url: `${siteMetadata.siteUrl}`,
+      name: siteMetadata.defaultTitle,
+      description: siteMetadata.defaultDescription,
+      publisher: {
+        "@type": "Organization",
+        name: "SerendipityUltimatediet",
+        url: `${siteMetadata.siteUrl}`,
+      },
+      inLanguage: "ja",
+    },
+  ],
+});
+
+export const Head = ({ data }) => (
+  <>
+    <body id="pagetop" />
+    <Seo title2={`オンラインダイエット | ${data.microcmsPosts.title}`} description={data.microcmsPosts.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "").slice(0, 120)} />
+    <script type="application/ld+json">{JSON.stringify(getJsonLd(data, data.site.siteMetadata))}</script>
+  </>
+);
+
 const PostPage = ({ data }) => {
   dayjs.locale("ja");
 
@@ -44,15 +100,6 @@ const PostPage = ({ data }) => {
   );
 };
 
-export const Head = ({ data }) => (
-  <>
-    <Seo
-      title2={`オンラインダイエット | ${data.microcmsPosts.title}`}
-      description={data.microcmsPosts.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "").slice(0, 120)}
-    />
-  </>
-);
-
 export const query = graphql`
   query ($postId: String) {
     microcmsPosts(id: { eq: $postId }) {
@@ -69,6 +116,17 @@ export const query = graphql`
       }
       postsId
       date(formatString: "YYYY.MM.DD")
+      publishedAt(formatString: "YYYY-MM-DDThh:mm:ssZ")
+      updatedAt(formatString: "YYYY-MM-DDThh:mm:ssZ")
+    }
+    site {
+      siteMetadata {
+        defaultTitle: title
+        defaultKeyword: keyword
+        defaultDescription: description
+        siteUrl: url
+        defaultImage: image
+      }
     }
   }
 `;

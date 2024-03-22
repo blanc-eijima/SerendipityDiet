@@ -1,13 +1,13 @@
-const path = require('path');
+const path = require("path");
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
-  if (node.internal.type === 'microcmsPosts') {
-    const slug = createFilePath({ node, getNode, basePath: 'posts' });
+  if (node.internal.type === "microcmsPosts") {
+    const slug = createFilePath({ node, getNode, basePath: "posts" });
     createNodeField({
       node,
-      name: 'slug',
+      name: "slug",
       value: `/posts${slug}`, // スラッグを"/posts/記事ID"として設定
     });
   }
@@ -50,7 +50,7 @@ exports.createPages = async ({ graphql, actions }) => {
   `);
 
   // カテゴリーページのテンプレートを指定
-  const categoryTemplate = path.resolve('./src/templates/category.js');
+  const categoryTemplate = path.resolve("./src/templates/category.js");
 
   // カテゴリーページを生成
   queryResult.data.allMicrocmsCategory.edges.forEach(({ node }) => {
@@ -71,13 +71,13 @@ exports.createPages = async ({ graphql, actions }) => {
 
       const links = [];
       if (currentPage > 1) {
-        links.push({ page: '<< Prev', url: currentPage === 1 ? `/category/${node.categoryId}` : `/category/${node.categoryId}/${currentPage - 1}` });
+        links.push({ page: "<< Prev", url: currentPage === 1 ? `/category/${node.categoryId}` : `/category/${node.categoryId}/${currentPage - 1}` });
       }
       for (let j = startPage; j <= endPage; j++) {
         links.push({ page: j, url: j === 1 ? `/category/${node.categoryId}` : `/category/${node.categoryId}/${j}` });
       }
       if (currentPage < numPages) {
-        links.push({ page: 'Next >>', url: `/category/${node.categoryId}/${currentPage + 1}` });
+        links.push({ page: "Next >>", url: `/category/${node.categoryId}/${currentPage + 1}` });
       }
 
       createPage({
@@ -100,7 +100,7 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   // 記事ページのテンプレートを指定
-  const postTemplate = path.resolve('./src/templates/posts.js');
+  const postTemplate = path.resolve("./src/templates/posts.js");
 
   queryResult.data.allMicrocmsPosts.edges.forEach(({ node }) => {
     createPage({

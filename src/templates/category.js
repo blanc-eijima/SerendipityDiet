@@ -27,6 +27,97 @@ const groupPostsByCategory = (posts) => {
   }, {});
 };
 
+export const query = graphql`
+  query ($categoryId: String, $limit: Int, $skip: Int) {
+    allMicrocmsPosts(filter: { category: { id: { eq: $categoryId } } }, limit: $limit, skip: $skip, sort: { date: DESC }) {
+      edges {
+        node {
+          id
+          postsId
+          title
+          eyecatch {
+            url
+          }
+          content
+          date(formatString: "YYYY.MM.DD")
+          updatedAt(formatString: "YYYY-MM-DDThh:mm:ssZ")
+          createdAt(formatString: "YYYY-MM-DDThh:mm:ssZ")
+          category {
+            id
+            name
+          }
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        defaultTitle: title
+        defaultKeyword: keyword
+        defaultDescription: description
+        siteUrl: url
+        defaultImage: image
+      }
+    }
+  }
+`;
+
+const getJsonLd = (data, siteMetadata, currentPage) => ({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          item: `${siteMetadata.siteUrl}`,
+          name: "ホーム",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          item: `${siteMetadata.siteUrl}category/${data.allMicrocmsPosts.edges[0].node.category.id}/${currentPage > 1 ? currentPage : ""}/`,
+          name: `${data.allMicrocmsPosts.edges[0].node.category.name}｜${currentPage > 1 ? "ページ" + currentPage : ""}`,
+        },
+      ],
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${siteMetadata.siteUrl}category/${data.allMicrocmsPosts.edges[0].node.category.id}/`,
+      url: `${siteMetadata.siteUrl}category/${data.allMicrocmsPosts.edges[0].node.category.id}/`,
+      name: data.allMicrocmsPosts.edges[0].node.category.name,
+      description: siteMetadata.defaultDescription,
+      inLanguage: "ja",
+      isPartOf: { "@id": `${siteMetadata.siteUrl}#website` },
+      breadcrumb: { "@id": `${siteMetadata.siteUrl}#breadcrumblist` },
+      datePublished: data.allMicrocmsPosts.edges[0].node.createdAt,
+      dateModified: data.allMicrocmsPosts.edges[0].node.updatedAt,
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteMetadata.siteUrl}#website`,
+      url: `${siteMetadata.siteUrl}`,
+      name: siteMetadata.defaultTitle,
+      description: siteMetadata.defaultDescription,
+      publisher: {
+        "@type": "Organization",
+        name: "SerendipityUltimatediet",
+        url: `${siteMetadata.siteUrl}`,
+      },
+      inLanguage: "ja",
+    },
+  ],
+});
+
+export const Head = ({ data, pageContext }) => {
+  return (
+    <>
+      <Seo title2={`オンラインダイエット｜最強に痩せる食事と運動を指導する究極のプログラム｜${data.allMicrocmsPosts.edges[0].node.category.name}｜${pageContext.currentPage > 1 ? "ページ" + pageContext.currentPage : ""}`} />
+      <script type="application/ld+json">{JSON.stringify(getJsonLd(data, data.site.siteMetadata, pageContext.currentPage))}</script>
+    </>
+  );
+};
+
 const CategoryPage = ({ data, pageContext }) => {
   dayjs.locale("ja");
   const { allMicrocmsPosts } = data;
@@ -119,40 +210,5 @@ function stripHTML(input) {
   }
   return input.replace(/<[^>]*>?/gm, "");
 }
-
-export const query = graphql`
-  query ($categoryId: String, $limit: Int, $skip: Int) {
-    allMicrocmsPosts(filter: { category: { id: { eq: $categoryId } } }, limit: $limit, skip: $skip, sort: { date: DESC }) {
-      edges {
-        node {
-          id
-          postsId
-          title
-          eyecatch {
-            url
-          }
-          content
-          date(formatString: "YYYY.MM.DD")
-          updatedAt(formatString: "YYYY.MM.DD")
-          createdAt(formatString: "YYYY-MM-DDTHH:MM")
-          category {
-            id
-            name
-          }
-        }
-      }
-    }
-  }
-`;
-
-export const Head = ({ data }) => {
-  const pageTitle = data.allMicrocmsPosts.edges[0].node.category.name;
-
-  return (
-    <>
-      <Seo title2={pageTitle} />
-    </>
-  );
-};
 
 export default CategoryPage;

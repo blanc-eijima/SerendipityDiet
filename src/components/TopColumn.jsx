@@ -9,8 +9,6 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.tz.setDefault("Asia/Tokyo");
 
-const MAX_CONTENT_LENGTH = 100; // 最大文字数を設定してください
-
 const TopColumn = () => {
   dayjs.locale("ja");
   const data = useStaticQuery(graphql`
@@ -51,11 +49,5 @@ const TopColumn = () => {
     </>
   );
 };
-// HTMLタグを削除する関数
-function stripHTML(html) {
-  if (html) {
-    return html.replace(/<[^>]*>/g, "");
-  }
-  return "";
-}
+
 export default TopColumn;

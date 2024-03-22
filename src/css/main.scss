@@ -288,6 +288,16 @@ select {
       @media screen and (min-width: 1025px) {
         display: none;
       }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
 
       @media not screen and (min-width: 1025px) {
         position: fixed;
@@ -297,12 +307,13 @@ select {
         cursor: pointer;
         width: 50px;
         height: 50px;
-
+        background-color: transparent;
+        border: 0;
         span {
           display: inline-block;
           transition: all 0.4s;
           position: absolute;
-          left: 14px;
+          left: 12px;
           height: 2px;
           border-radius: 2px;
           background-color: #b50208;
@@ -1801,6 +1812,11 @@ textarea:focus::placeholder {
     background-color: #1a1a1a;
     cursor: pointer;
     position: relative;
+    border: 0;
+    width: 100%;
+    text-align: left;
+    color: #fff;
+    font-size: 1.8rem;
     &::before {
       counter-increment: question-counter; /* カウンターを増やす */
       content: "Q " counter(question-counter);
