@@ -29,11 +29,12 @@ const Header = () => {
             </Link>
           </h1>
           <Nav navClicked={navClicked} />
-          <div className={`navbtn ${navClicked ? "active" : ""}`} onClick={handleNavClick}>
+          <button className={`navbtn ${navClicked ? "active" : ""}`} onClick={handleNavClick}>
             <span />
             <span />
             <span />
-          </div>
+            <span className="sr-only">Menu</span>
+          </button>
         </div>
       </header>
     </>
