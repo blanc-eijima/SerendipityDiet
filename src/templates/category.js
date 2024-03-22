@@ -10,6 +10,12 @@ import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 import Section from "../components/Section";
 
+const pagemeta = {
+  title: `オンラインダイエット｜最強に痩せる食事と運動を指導する究極のプログラム`,
+  description: `究極オンラインダイエット指導。簡単でも効率的に痩せていける食事指導。60分の運動でも痩せやすい身体を創るトレーニング指導。食事と運動の効果を更に向上させる生活テクニックを伝授。`,
+  keyword: `オンラインダイエット,ダイエットプログラム,セレンディピティ,栄養管理,運動プラン,パーソナルコーチ,ダイエットコーチ,コーチング,健康的なライフスタイル,持続可能なダイエット`,
+};
+
 dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.tz.setDefault("Asia/Tokyo");
@@ -109,10 +115,10 @@ const getJsonLd = (data, siteMetadata, currentPage) => ({
   ],
 });
 
-export const Head = ({ data, pageContext }) => {
+export const Head = ({ data, siteMetadata, pageContext }) => {
   return (
     <>
-      <Seo title2={`オンラインダイエット｜最強に痩せる食事と運動を指導する究極のプログラム｜${data.allMicrocmsPosts.edges[0].node.category.name}｜${pageContext.currentPage > 1 ? "ページ" + pageContext.currentPage : ""}`} />
+      <Seo title2={`${pagemeta.title}｜${data.allMicrocmsPosts.edges[0].node.category.name}｜${pageContext.currentPage > 1 ? "ページ" + pageContext.currentPage : ""}`} description={pagemeta.description} />
       <script type="application/ld+json">{JSON.stringify(getJsonLd(data, data.site.siteMetadata, pageContext.currentPage))}</script>
     </>
   );
@@ -130,11 +136,9 @@ const CategoryPage = ({ data, pageContext }) => {
     <>
       <Layout imageName={imageName}>
         <Section id="subpage" title={data.allMicrocmsPosts.edges[0]?.node.category.id} sub={true}>
-          <h1>Category</h1>
-
           {Object.entries(groupedPosts).map(([categoryId, posts]) => (
             <React.Fragment key={categoryId}>
-              <h2>{categoryId}</h2>
+              <h1>{categoryId}</h1>
               <div className="post_list">
                 {posts.map(({ node }) => {
                   const content = stripHTML(node.content);

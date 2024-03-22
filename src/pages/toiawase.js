@@ -72,7 +72,7 @@ const Toiawase = () => {
     <>
       <Layout>
         <Section id={pagemeta.slug} svg={true} title={pagemeta.subtitle} sub={true}>
-          <h1>{pagemeta.title}</h1>
+          <h1>{pagemeta.subtitle}</h1>
 
           <h2>究極のダイエットをお手伝いするために無料電話相談を承ります。</h2>
           <h3>まずはお気軽に、お問い合わせ下さい。</h3>
