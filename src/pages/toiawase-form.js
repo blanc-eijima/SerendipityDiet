@@ -8,8 +8,8 @@ const pagemeta = {
   keyword: `オンラインダイエット,ダイエットプログラム,セレンディピティ,栄養管理,運動プラン,パーソナルコーチ,ダイエットコーチ,コーチング,健康的なライフスタイル,持続可能なダイエット`,
   subtitle: `Contact Form`, //このページの見出し
   slug: `toiawase-form`, //このページのslug
-  parentSubtitle: `スマホ化・レスポンシブ対応`, //親ページのページ名構造化パンくずのため
-  parentSlug: `responsive`, //親ページのスラッグ構造化パンくずのため
+  parentSubtitle: `Contact`, //親ページのページ名構造化パンくずのため
+  parentSlug: `toiawase`, //親ページのスラッグ構造化パンくずのため
 };
 const siteurl = "https://serendipity-ultimatediet.com/";
 const jsonLd = {
@@ -75,7 +75,7 @@ const ToiawaseForm = () => {
   return (
     <>
       <Layout>
-        <Section id="contact" svg={true} title={pagemeta.subtitle} parentTitle="Contact" slug={pagemeta.slug} sub={true}>
+        <Section id="contact" svg={true} title={pagemeta.subtitle} parentTitle="Contact" slug={pagemeta.parentSlug} sub={true}>
           <h1>{pagemeta.subtitle}</h1>
           <h2>お問い合わせフォーム</h2>
           <p>
