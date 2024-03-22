@@ -182,7 +182,7 @@ const Index = () => {
               <p className="qa-question" onClick={() => toggleOpen(7)}>
                 お酒は飲まないほうが良いですか？
               </p>
-              <p className={`qa-answer ${openId === 7 ? "open" : ""}`}>ハッキリ言ってお酒は有害です。お酒は飲まないように案内しております。いきなり完全に辞めろとは言いませんが、お酒を辞めれない言い訳をする人は正しいダイエットを行うための生活習慣を身につけることはできないと言っても過言ではありません。</p>
+              <p className={`qa-answer ${openId === 7 ? "open" : ""}`}>お酒は有害のため、できるだけ飲まないように案内しております。完全に辞めてくださいと言うわけではございませんが、もし飲むとしても１ヵ月に１回や２週間に１回などある程度の頻度や量を決めて、自己管理できるようになっていただきたいです。</p>
             </div>
             <div className="qa-item">
               <p className="qa-question" onClick={() => toggleOpen(8)}>
@@ -206,7 +206,7 @@ const Index = () => {
               <p className="qa-question" onClick={() => toggleOpen(11)}>
                 運動経験がなくても大丈夫でしょうか？
               </p>
-              <p className={`qa-answer ${openId === 11 ? "open" : ""}`}>甘い考えでなければ大丈夫です。学生時代以来運動をしていなかった人もたくさんいます。最初はペースをつかむまでに苦労することもあると思いますが本人の強い意志と徹底の仕方次第です。</p>
+              <p className={`qa-answer ${openId === 11 ? "open" : ""}`}>真面目に取り組めば大丈夫です。学生時代以来運動をしていなかった人もたくさんいます。最初はペースをつかむまでに苦労することもあると思いますが本人の強い意志と徹底の仕方次第です。</p>
             </div>
           </div>
         </Section>
