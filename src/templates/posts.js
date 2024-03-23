@@ -65,7 +65,7 @@ const getJsonLd = (data, siteMetadata) => ({
 export const Head = ({ data }) => (
   <>
     <body id="pagetop" />
-    <Seo title2={`オンラインダイエット | ${data.microcmsPosts.title}`} description={data.microcmsPosts.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "").slice(0, 120)} />
+    <Seo title2={`${data.microcmsPosts.title}`} description={data.microcmsPosts.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "").slice(0, 120)} />
     <script type="application/ld+json">{JSON.stringify(getJsonLd(data, data.site.siteMetadata))}</script>
   </>
 );
