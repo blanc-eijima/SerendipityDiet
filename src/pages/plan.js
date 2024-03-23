@@ -138,7 +138,7 @@ const Plan = () => {
   return (
     <Layout>
       <Section title={pagemeta.subtitle} sub={true} id={pagemeta.slug} svg={true}>
-        <h1>{pagemeta.subtitle}</h1>
+        <h1>オンラインダイエット{pagemeta.subtitle}</h1>
         <PlanBox course="silver" title="シルバーコース" price="35,000">
           <p>
             現状をヒヤリングして、

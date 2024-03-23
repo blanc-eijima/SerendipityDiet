@@ -109,6 +109,7 @@ const Index = () => {
               </Swiper>
             </div>
             <div className="main_diet_r">
+              <h1>オンラインダイエット</h1>
               <h2>栄養学 ワークアウト モチベーション</h2>
               <h3>
                 <span className="txt20">究極の個別オンラインダイエット指導　全国対応</span>

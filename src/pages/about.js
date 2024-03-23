@@ -70,7 +70,7 @@ const About = () => {
     <>
       <Layout>
         <Section id="about" svg={true} title={pagemeta.subtitle} sub={true}>
-          <h1>{pagemeta.subtitle}</h1>
+          <h1>オンラインダイエット{pagemeta.subtitle}</h1>
           <h2>ボディメイクインストラクター</h2>
           <h3>安永 貴裕</h3>
           <div className="prof_box">
