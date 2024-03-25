@@ -25,7 +25,7 @@ const Header = () => {
         <div id="header-inner">
           <h1 className="h_logo">
             <Link to="/">
-              <img src="/images/logo.png" width={200} height={67} className="opa" alt="SERENDIPITY Ultimate Diet" />
+              <img src="/images/logo.svg" width={200} height={67} className="opa" alt="SERENDIPITY Ultimate Diet" />
             </Link>
           </h1>
           <Nav navClicked={navClicked} />
