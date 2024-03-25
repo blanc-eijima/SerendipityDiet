@@ -143,14 +143,17 @@ select {
   border-bottom: solid 1px #5b5b5b;
   z-index: 10;
   position: relative;
-
   #header-inner {
     width: 1400px;
+    max-width: 100%;
     padding: 15px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    @media screen and (max-width: 1280px) {
+      width: 100%;
+    }
     @media screen and (max-width: 1024px) {
       width: 100%;
       padding: 5px;
@@ -159,7 +162,7 @@ select {
       position: relative;
     }
     .h_logo {
-      width: 15%;
+      width: 25%;
       padding: 15px 0;
       @media screen and (max-width: 1024px) {
         width: 100%;
@@ -201,7 +204,7 @@ select {
       }
     }
     .h_nav {
-      padding: 20px;
+      padding: 20px 0;
       width: 75%;
       display: flex;
       justify-content: flex-end;
@@ -237,14 +240,21 @@ select {
         display: flex;
         flex-wrap: wrap;
         @media not screen and (min-width: 1025px) {
-          width: 100%;
+          width: 80%;
           text-align: center;
           margin: 20px 0;
-          border-top: solid 1px #fff;
+
           flex-direction: column;
         }
         li {
           margin: 0 5px;
+          &:first-child {
+            a {
+              @media not screen and (min-width: 1025px) {
+                border-top: solid 1px #fff;
+              }
+            }
+          }
           a {
             font-size: 1.6rem;
             color: #fff;
@@ -259,6 +269,7 @@ select {
             padding: 10px;
             border-bottom: solid 3px #000;
             transition: all 0.3s;
+
             @media not screen and (min-width: 1025px) {
               padding: 20px;
               border-bottom: solid 1px #fff;
@@ -541,7 +552,7 @@ footer {
   margin: 0 auto;
   box-sizing: border-box;
   position: relative;
-  z-index: 10;
+  z-index: 1;
 }
 
 .foot_box {
@@ -569,12 +580,24 @@ footer {
       transition: 0.3s;
       background-color: #3b3b3b;
       border-radius: 50px;
-      &:hover {
+      color: #fff;
+      /*&:hover {
         background-color: #541f2c;
-      }
+      }*/
       i {
         font-size: 100%;
         color: #fff;
+      }
+      &.fb {
+        background-color: #3b5998;
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+      &.tw {
+        &:hover {
+          opacity: 0.5;
+        }
       }
     }
     &.f_line_icon {
@@ -602,6 +625,10 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
+  margin: 20px 0;
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+  }
 }
 .foot_menu li {
   margin: 15px;
@@ -644,7 +671,7 @@ address {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 0;
+    padding: 20px;
   }
   #footer-inner div {
     width: 100%;
@@ -670,6 +697,7 @@ address {
     text-align: center;
   }
   .foot_logo img {
+    max-width: 100%;
     margin: 0 auto;
   }
   .foot_link {
@@ -747,9 +775,19 @@ section {
 }
 
 .main-content {
-  width: 1200px;
-  margin: 0 auto;
+  width: 1400px;
+  margin: 20px auto;
   font-size: 1.8rem;
+  @media screen and (max-width: 1366px) {
+    width: 95%;
+    margin: 0 auto;
+    padding: 40px 0;
+  }
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+    margin: 0 auto;
+    padding: 3rem;
+  }
   p {
     margin: 20px 0;
   }
@@ -785,20 +823,13 @@ a:hover {
   text-decoration: underline;
 }
 
-@media screen and (max-width: 1366px) {
-  .main-content {
-    width: 90%;
-    margin: 0 auto;
-    padding: 40px 0;
-  }
-}
-
 .svg_bg {
   position: absolute;
   top: -25%;
   left: -50%;
   z-index: 0;
   opacity: 0.5;
+  max-width: 100%;
   @media screen and (max-width: 768px) {
     top: -3%;
     left: -50%;
@@ -806,6 +837,7 @@ a:hover {
   svg {
     fill: #ff003b;
     stroke: #ff003b;
+    max-width: 100%;
   }
 }
 
@@ -895,7 +927,7 @@ a:hover {
 
 .cource_box {
   width: calc(100% / 3);
-  padding: 3%;
+  padding: 20px;
   position: relative;
 }
 .top_cource_icon {
@@ -1082,8 +1114,12 @@ a:hover {
     top: -60%;
     left: -15%;
     z-index: 0;
+    @media screen and (max-width: 1024px) {
+      top: -30%;
+      right: 0;
+    }
     @media screen and (max-width: 768px) {
-      top: -60%;
+      top: -30%;
       right: 0;
     }
     svg {
@@ -1128,18 +1164,26 @@ a:hover {
     }
   }
 }
-
+.plan_cont {
+  h3 {
+    display: inline-block;
+    position: relative;
+    @media not screen and (min-width: 1025px) {
+      display: block;
+    }
+  }
+  h4 {
+    font-size: 2.8rem;
+  }
+}
 .plan_box {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: 40px 0;
-  &:nth-child(even) {
-    flex-direction: row-reverse;
+  @media not screen and (min-width: 1025px) {
+    margin: 20px 0;
   }
-  h4 {
-    font-size: 2.4rem;
-  }
-
   .plan_l {
     width: 60%;
     display: flex;
@@ -1147,40 +1191,50 @@ a:hover {
     flex-direction: column;
     position: relative;
     @media not screen and (min-width: 1025px) {
+      width: 52%;
+    }
+    @media not screen and (min-width: 769px) {
       width: 100%;
     }
-
-    h3 {
-      display: inline-block;
-      position: relative;
-    }
-  }
-  &:nth-child(odd) {
-    .plan_l {
-      padding-right: 20px;
-      @media not screen and (min-width: 1025px) {
-        padding-right: 0;
-      }
-    }
-  }
-  &:nth-child(even) {
-    .plan_l {
-      padding-left: 20px;
-      @media not screen and (min-width: 1025px) {
-        padding-left: 0;
+    p {
+      &:first-child {
+        margin-top: 0;
       }
     }
   }
   .plan_r {
-    width: 40%;
+    width: 35%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     position: relative;
     @media not screen and (min-width: 1025px) {
+      width: 45%;
+    }
+    @media not screen and (min-width: 769px) {
+      width: 60%;
+      margin: 20px auto;
+    }
+    @media not screen and (min-width: 767px) {
       width: 100%;
+      margin-bottom: 20px;
+    }
+    img {
+      width: 100%;
+      height: auto;
     }
   }
+}
+
+.plan_box.reverse {
+  flex-direction: row-reverse;
+}
+
+.silver_title,
+.gold_title,
+.platinum_title {
+  position: relative;
+  font-size: 4rem !important;
 }
 .silver_title:after {
   background-image: url("../images/silver_icon.png");
@@ -1191,7 +1245,7 @@ a:hover {
   transform: rotate(15deg);
   display: inline-block;
   position: absolute;
-  top: -40px;
+  top: -20px;
   margin-left: 10px;
 }
 .gold_title:after {
@@ -1203,7 +1257,7 @@ a:hover {
   transform: rotate(15deg);
   display: inline-block;
   position: absolute;
-  top: -40px;
+  top: -20px;
   margin-left: 10px;
 }
 .platinum_title:after {
@@ -1215,7 +1269,7 @@ a:hover {
   transform: rotate(15deg);
   display: inline-block;
   position: absolute;
-  top: -40px;
+  top: -20px;
   margin-left: 10px;
 }
 
@@ -1238,24 +1292,27 @@ a:hover {
     }
   }
   .silver_title:after {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     position: absolute;
     top: -20px;
+    right: -20px;
     margin-left: 10px;
   }
   .gold_title:after {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     position: absolute;
     top: -20px;
+    right: -20px;
     margin-left: 10px;
   }
   .platinum_title:after {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     position: absolute;
     top: -20px;
+    right: -20px;
     margin-left: 10px;
   }
 }

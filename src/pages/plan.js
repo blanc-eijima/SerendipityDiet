@@ -139,7 +139,7 @@ const Plan = () => {
     <Layout>
       <Section title={pagemeta.subtitle} sub={true} id={pagemeta.slug} svg={true}>
         <h1>オンラインダイエット{pagemeta.subtitle}</h1>
-        <PlanBox course="silver" title="シルバーコース" price="35,000">
+        <PlanBox course="silver" title="シルバーコース" price="35,000" reverse>
           <p>
             現状をヒヤリングして、
             <br />
@@ -158,7 +158,7 @@ const Plan = () => {
           <p>シルバーコースと同様でビデオ通話（LINE・Skypeなど）、音声通話（固定電話・携帯電話）のどちらでも対応可能です。</p>
           <div className="paypal-bt" id="paypal-button-container-P-1BH82252997389359MW5SVQA"></div>
         </PlanBox>
-        <PlanBox course="platinum" title="プラチナコース" price="95,000">
+        <PlanBox course="platinum" title="プラチナコース" price="95,000" reverse>
           <p>１ヵ月にコミュニケーションをとる一番最適な回数は３回くらいだと私は考えております。</p>
 
           <p>コンサルティング回数が多すぎてすぐに質問できる状況だと人は考えなくなってきます。最適なアドバイスを受けることは大事ですが、ご自分で常に考えながら行動していくことも同じくらい大事なのです。</p>
