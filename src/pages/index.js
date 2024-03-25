@@ -5,6 +5,7 @@ import Section from "../components/Section";
 import CourseBox from "../components/CourseBox";
 import Seo from "../components/Seo";
 import TopColumn from "../components/TopColumn";
+import FaqTxt from "../components/FaqTxt";
 
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -59,11 +60,7 @@ export const Head = () => (
   </>
 );
 const Index = () => {
-  const [openId, setOpenId] = useState(null); // 初期状態では何も開いていない
-
-  const toggleOpen = (id) => {
-    setOpenId(openId === id ? null : id); // 現在開いている質問を閉じるか、新しい質問を開く
-  };
+  const [openId, setOpenId] = useState(null);
 
   return (
     <>
@@ -92,19 +89,19 @@ const Index = () => {
                 slidesPerView={1}
               >
                 <SwiperSlide>
-                  <StaticImage src="../images/top_slide01.jpg" width={480} height={320} alt="" />
+                  <StaticImage src="../images/top_slide01.jpg" width={560} height={388} alt="" />
                 </SwiperSlide>
                 <SwiperSlide>
-                  <StaticImage src="../images/top_slide02.jpg" width={480} height={320} alt="" />
+                  <StaticImage src="../images/top_slide02.jpg" width={560} height={388} alt="" />
                 </SwiperSlide>
                 <SwiperSlide>
-                  <StaticImage src="../images/top_slide03.jpg" width={480} height={320} alt="" />
+                  <StaticImage src="../images/top_slide03.jpg" width={560} height={388} alt="" />
                 </SwiperSlide>
                 <SwiperSlide>
-                  <StaticImage src="../images/top_slide04.jpg" width={480} height={320} alt="" />
+                  <StaticImage src="../images/top_slide04.jpg" width={560} height={388} alt="" />
                 </SwiperSlide>
                 <SwiperSlide>
-                  <StaticImage src="../images/top_slide05.jpg" width={480} height={320} alt="" />
+                  <StaticImage src="../images/top_slide05.jpg" width={560} height={388} alt="" />
                 </SwiperSlide>
               </Swiper>
             </div>
@@ -183,139 +180,51 @@ const Index = () => {
 
         <Section id="qa" className="qa-section">
           <h2 className="qa-title">オンラインダイエットQ&A</h2>
+
           <div className="qa-container">
-            <div className="qa-item">
-              <button
-                className="qa-question"
-                onClick={() => toggleOpen(1)}
-                onKeyPress={(event) => {
-                  if (event.key === "Enter") toggleOpen(1);
-                }}
-              >
-                ビデオ通話での１回の通話時間はどれくらいですか？
-              </button>
-              <p className={`qa-answer ${openId === 1 ? "open" : ""}`}>基本的には３０分～４０分の間です。長く話をすれば良いと言うものではなく、現状に対しての大事な要点を端的に話していきます。初回は長めに時間をとってもらうことが多いです。</p>
-            </div>
-            <div className="qa-item">
-              <button
-                className="qa-question"
-                onClick={() => toggleOpen(2)}
-                onKeyPress={(event) => {
-                  if (event.key === "Enter") toggleOpen(2);
-                }}
-              >
-                仕事の休憩時間や喫茶店から、移動時間や待ち時間などの隙間時間なでもビデオ通話を受けてもらえますか？
-              </button>
-              <p className={`qa-answer ${openId === 2 ? "open" : ""}`}>隙間時間などでのビデオ通話は絶対にお断りしております。自宅の個室で必ず１人になっていただき、このために時間をとっていただきます。きちんとした質の高いビデオ通話を行うためです。やるからには真剣に向き合います。</p>
-            </div>
-            <div className="qa-item">
-              <button
-                className="qa-question"
-                onClick={() => toggleOpen(3)}
-                onKeyPress={(event) => {
-                  if (event.key === "Enter") toggleOpen(3);
-                }}
-              >
-                夜勤がある仕事をしておりますが、それでもダイエットを成功させることができますか？
-              </button>
-              <p className={`qa-answer ${openId === 3 ? "open" : ""}`}>ご本人の徹底次第ですが夜勤がある仕事をしていても成功は可能です。但し朝から夕方までの勤務よりは夜勤があるほうが状況的に不利になってくるため他の部分でカバーすることが大事になってきます。状況に応じてカバーの仕方をお伝えしていきます。</p>
-            </div>
-            <div className="qa-item">
-              <button
-                className="qa-question"
-                onClick={() => toggleOpen(4)}
-                onKeyPress={(event) => {
-                  if (event.key === "Enter") toggleOpen(4);
-                }}
-              >
-                オンラインダイエットの月額の料金以外にもお金はかかってきますか？
-              </button>
-              <p className={`qa-answer ${openId === 4 ? "open" : ""}`}>お金はかかります。トレーニングウエアやシューズ、その他の消耗品などを購入する費用。ジムへ通ったりする費用や移動費が代表的な費用です。</p>
-            </div>
-            <div className="qa-item">
-              <button
-                className="qa-question"
-                onClick={() => toggleOpen(5)}
-                onKeyPress={(event) => {
-                  if (event.key === "Enter") toggleOpen(5);
-                }}
-              >
-                がんばれば一ヵ月で理想の体型になることは可能ですか？
-              </button>
-              <p className={`qa-answer ${openId === 5 ? "open" : ""}`}>それまでの過程と環境によるので一概には言えませんが、これからダイエットを始めようとする人は一ヵ月で理想の体型になることは厳しいです。６ヵ月以上の長期戦で考えてください。１ヵ月で落ちてよいのは体重の５％が限度です。最初は体重を落とすよりも脂肪を燃やせる身体を創ることに重点を置かないといけないので短期戦ではないのです。ダイエットはその時だけ行うものではなく生活習慣と思ってください。</p>
-            </div>
-            <div className="qa-item">
-              <button
-                className="qa-question"
-                onClick={() => toggleOpen(6)}
-                onKeyPress={(event) => {
-                  if (event.key === "Enter") toggleOpen(6);
-                }}
-              >
-                食事制限は必要ですか？
-              </button>
-              <p className={`qa-answer ${openId === 6 ? "open" : ""}`}>食事制限は必ず必要ですが３食をきちんと食べます。食事制限と言ってもただ無暗に食事量を減らすわけではなく制限のかけ方やコントロールの仕方をお伝えしていきます。どのタイミングでどういう物を食べることが効率的なのかを知ることが大事なのです。</p>
-            </div>
-            <div className="qa-item">
-              <button
-                className="qa-question"
-                onClick={() => toggleOpen(7)}
-                onKeyPress={(event) => {
-                  if (event.key === "Enter") toggleOpen(7);
-                }}
-              >
-                お酒は飲まないほうが良いですか？
-              </button>
-              <p className={`qa-answer ${openId === 7 ? "open" : ""}`}>お酒は有害のため、できるだけ飲まないように案内しております。完全に辞めてくださいと言うわけではございませんが、もし飲むとしても１ヵ月に１回や２週間に１回などある程度の頻度や量を決めて、自己管理できるようになっていただきたいです。</p>
-            </div>
-            <div className="qa-item">
-              <button
-                className="qa-question"
-                onClick={() => toggleOpen(8)}
-                onKeyPress={(event) => {
-                  if (event.key === "Enter") toggleOpen(8);
-                }}
-              >
-                １回の運動時間はどれくらいが理想ですか？
-              </button>
-              <p className={`qa-answer ${openId === 8 ? "open" : ""}`}>約６０分くらいです。ダイエットを成功させる運動（トレーニング）は長時間行えば良いというものではなく、結果に繋がる正しいことを効率的にできているかが重要です。変化をつけるために運動の時間を時々長くすることも良いですが、そもそも人間の集中力は何時間も持つものではありません。最初は時間がかかったとしても６０分くらいでタンッ！タンッ！タンッ！と進めていくほうが効率的なのです。</p>
-            </div>
-            <div className="qa-item">
-              <button
-                className="qa-question"
-                onClick={() => toggleOpen(9)}
-                onKeyPress={(event) => {
-                  if (event.key === "Enter") toggleOpen(9);
-                }}
-              >
-                運動は週に何回くらい行えば良いですか？
-              </button>
-              <p className={`qa-answer ${openId === 9 ? "open" : ""}`}>時と場合と状況によって変わりますが週に４回くらいの運動で継続するのが理想です。むやみに毎日行えば良いというものではありません。身体は休ませることも必要です。大切なことは正しいトレーニング（運動）を行えているかと継続できているかです。</p>
-            </div>
-            <div className="qa-item">
-              <button
-                className="qa-question"
-                onClick={() => toggleOpen(10)}
-                onKeyPress={(event) => {
-                  if (event.key === "Enter") toggleOpen(10);
-                }}
-              >
-                自宅トレーニングでもダイエットを成功させることができますか？
-              </button>
-              <p className={`qa-answer ${openId === 10 ? "open" : ""}`}>できなくはないですが、筋力トレーニングはジムで行うように案内しております。自宅よりジムのほうが行えることが多く、モチベーションが維持できて出力もアップします。自宅と違って大きな鏡の前でトレーニングをできるため正しいフォームで行える利点もあり、自分の体型も毎回確認することができます。</p>
-            </div>
-            <div className="qa-item">
-              <button
-                className="qa-question"
-                onClick={() => toggleOpen(11)}
-                onKeyPress={(event) => {
-                  if (event.key === "Enter") toggleOpen(11);
-                }}
-              >
-                運動経験がなくても大丈夫でしょうか？
-              </button>
-              <p className={`qa-answer ${openId === 11 ? "open" : ""}`}>真面目に取り組めば大丈夫です。学生時代以来運動をしていなかった人もたくさんいます。最初はペースをつかむまでに苦労することもあると思いますが本人の強い意志と徹底の仕方次第です。</p>
-            </div>
+            <FaqTxt no="1" title="ビデオ通話での１回の通話時間はどれくらいですか？" openId={openId} setOpenId={setOpenId}>
+              基本的には３０分～４０分の間です。長く話をすれば良いと言うものではなく、現状に対しての大事な要点を端的に話していきます。初回は長めに時間をとってもらうことが多いです。
+            </FaqTxt>
+
+            <FaqTxt no="2" title="仕事の休憩時間や喫茶店から、移動時間や待ち時間などの隙間時間なでもビデオ通話を受けてもらえますか？" openId={openId} setOpenId={setOpenId}>
+              隙間時間などでのビデオ通話は絶対にお断りしております。自宅の個室で必ず１人になっていただき、このために時間をとっていただきます。きちんとした質の高いビデオ通話を行うためです。やるからには真剣に向き合います。
+            </FaqTxt>
+
+            <FaqTxt no="3" title="夜勤がある仕事をしておりますが、それでもダイエットを成功させることができますか？" openId={openId} setOpenId={setOpenId}>
+              ご本人の徹底次第ですが夜勤がある仕事をしていても成功は可能です。但し朝から夕方までの勤務よりは夜勤があるほうが状況的に不利になってくるため他の部分でカバーすることが大事になってきます。状況に応じてカバーの仕方をお伝えしていきます。
+            </FaqTxt>
+
+            <FaqTxt no="4" title="オンラインダイエットの月額の料金以外にもお金はかかってきますか？" openId={openId} setOpenId={setOpenId}>
+              お金はかかります。トレーニングウエアやシューズ、その他の消耗品などを購入する費用。ジムへ通ったりする費用や移動費が代表的な費用です。
+            </FaqTxt>
+
+            <FaqTxt no="5" title="がんばれば一ヵ月で理想の体型になることは可能ですか？" openId={openId} setOpenId={setOpenId}>
+              それまでの過程と環境によるので一概には言えませんが、これからダイエットを始めようとする人は一ヵ月で理想の体型になることは厳しいです。６ヵ月以上の長期戦で考えてください。１ヵ月で落ちてよいのは体重の５％が限度です。最初は体重を落とすよりも脂肪を燃やせる身体を創ることに重点を置かないといけないので短期戦ではないのです。ダイエットはその時だけ行うものではなく生活習慣と思ってください。
+            </FaqTxt>
+
+            <FaqTxt no="6" title="食事制限は必要ですか？" openId={openId} setOpenId={setOpenId}>
+              食事制限は必ず必要ですが３食をきちんと食べます。食事制限と言ってもただ無暗に食事量を減らすわけではなく制限のかけ方やコントロールの仕方をお伝えしていきます。どのタイミングでどういう物を食べることが効率的なのかを知ることが大事なのです。
+            </FaqTxt>
+
+            <FaqTxt no="7" title="お酒は飲まないほうが良いですか？" openId={openId} setOpenId={setOpenId}>
+              お酒は有害のため、できるだけ飲まないように案内しております。完全に辞めてくださいと言うわけではございませんが、もし飲むとしても１ヵ月に１回や２週間に１回などある程度の頻度や量を決めて、自己管理できるようになっていただきたいです。
+            </FaqTxt>
+
+            <FaqTxt no="8" title="１回の運動時間はどれくらいが理想ですか？" openId={openId} setOpenId={setOpenId}>
+              約６０分くらいです。ダイエットを成功させる運動（トレーニング）は長時間行えば良いというものではなく、結果に繋がる正しいことを効率的にできているかが重要です。変化をつけるために運動の時間を時々長くすることも良いですが、そもそも人間の集中力は何時間も持つものではありません。最初は時間がかかったとしても６０分くらいでタンッ！タンッ！タンッ！と進めていくほうが効率的なのです。
+            </FaqTxt>
+
+            <FaqTxt no="9" title="運動は週に何回くらい行えば良いですか？" openId={openId} setOpenId={setOpenId}>
+              時と場合と状況によって変わりますが週に４回くらいの運動で継続するのが理想です。むやみに毎日行えば良いというものではありません。身体は休ませることも必要です。大切なことは正しいトレーニング（運動）を行えているかと継続できているかです。
+            </FaqTxt>
+
+            <FaqTxt no="10" title="自宅トレーニングでもダイエットを成功させることができますか？" openId={openId} setOpenId={setOpenId}>
+              できなくはないですが、筋力トレーニングはジムで行うように案内しております。自宅よりジムのほうが行えることが多く、モチベーションが維持できて出力もアップします。自宅と違って大きな鏡の前でトレーニングをできるため正しいフォームで行える利点もあり、自分の体型も毎回確認することができます。
+            </FaqTxt>
+
+            <FaqTxt no="11" title="運動経験がなくても大丈夫でしょうか？" openId={openId} setOpenId={setOpenId}>
+              真面目に取り組めば大丈夫です。学生時代以来運動をしていなかった人もたくさんいます。最初はペースをつかむまでに苦労することもあると思いますが本人の強い意志と徹底の仕方次第です。
+            </FaqTxt>
           </div>
         </Section>
 
