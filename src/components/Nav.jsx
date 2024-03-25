@@ -40,7 +40,7 @@ const Nav = ({ navClicked }) => {
             </a>
           </li>
           <li>
-            <a href="tel:088-855-7879" className="tel">
+            <a href="tel:08045703907" className="tel">
               <FontAwesomeIcon icon={faPhoneVolume} />
             </a>
           </li>
