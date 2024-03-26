@@ -826,7 +826,7 @@ a:hover {
 .svg_bg {
   position: absolute;
   top: -25%;
-  left: -50%;
+  left: -10%;
   z-index: 0;
   opacity: 0.5;
   max-width: 100%;
@@ -1060,6 +1060,12 @@ a:hover {
   z-index: 1;
 }
 
+#toiawase {
+  .main-content {
+    position: relative;
+    z-index: 1;
+  }
+}
 #diet,
 #subpage {
   .main-content {

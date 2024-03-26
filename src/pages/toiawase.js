@@ -85,9 +85,9 @@ const Toiawase = () => {
               </a>
             </li>
             <li>
-              <a href="tel:088-855-7879">
+              <a href="tel:08045703907">
                 <FontAwesomeIcon icon={faPhone} />
-                088-855-7879
+                080-4570-3907
               </a>
             </li>
           </ul>
