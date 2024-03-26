@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const FaqTxt = ({ title, no, setOpenId, openId, children }) => {
   const toggleOpen = (id) => {
