@@ -7,17 +7,23 @@ import { Link } from "gatsby";
 
 const Nav = ({ navClicked }) => {
   const hNavClassName = navClicked ? "h_nav panelactive" : "h_nav";
-  const [isPC, setIsPC] = useState(window.innerWidth > 1024); // PC判定の状態を追加
+  const [isPC, setIsPC] = useState(typeof window !== "undefined" ? window.innerWidth > 1024 : false); // ここを修正
 
   useEffect(() => {
     const handleResize = () => {
-      setIsPC(window.innerWidth > 1024); // リサイズ時にPC判定の状態を更新
+      setIsPC(window.innerWidth > 1024);
     };
 
-    window.addEventListener("resize", handleResize);
+    if (typeof window !== "undefined") {
+      // ここを追加
+      window.addEventListener("resize", handleResize);
+    }
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      if (typeof window !== "undefined") {
+        // ここを追加
+        window.removeEventListener("resize", handleResize);
+      }
     };
   }, []);
 
