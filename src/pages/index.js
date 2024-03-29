@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "gatsby";
+import { Link, graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Section from "../components/Section";
 import CourseBox from "../components/CourseBox";
@@ -10,7 +10,7 @@ import FaqTxt from "../components/FaqTxt";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import { StaticImage } from "gatsby-plugin-image";
+import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
@@ -59,8 +59,40 @@ export const Head = () => (
     <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
   </>
 );
-const Index = () => {
+
+export const query = graphql`
+  query {
+    allFile(filter: { extension: { regex: "/(jpg)|(png)|(jpeg)/" } }) {
+      edges {
+        node {
+          base
+          childImageSharp {
+            gatsbyImageData(layout: FULL_WIDTH)
+          }
+        }
+      }
+    }
+  }
+`;
+
+const Index = ({ data }) => {
   const [openId, setOpenId] = useState(null);
+  const getImageData = (allFile, filename) => {
+    const file = allFile.edges.find(({ node }) => node.base === filename);
+    return file.node.childImageSharp.gatsbyImageData;
+  };
+  const slide1ImageData = getImageData(data.allFile, "top_slide01.jpg");
+  const slide2ImageData = getImageData(data.allFile, "top_slide02.jpg");
+  const slide3ImageData = getImageData(data.allFile, "top_slide03.jpg");
+  const slide4ImageData = getImageData(data.allFile, "top_slide04.jpg");
+  const slide5ImageData = getImageData(data.allFile, "top_slide05.jpg");
+
+  const main2ImageData = getImageData(data.allFile, "main_diet_02.jpg");
+  const main3ImageData = getImageData(data.allFile, "main_diet_03.png");
+
+  const silverImageData = getImageData(data.allFile, "course_silver.jpg");
+  const goldImageData = getImageData(data.allFile, "course_gold.jpg");
+  const platinumImageData = getImageData(data.allFile, "course_platinum.jpg");
 
   return (
     <>
@@ -86,22 +118,21 @@ const Index = () => {
                     slidesPerView: 1,
                   },
                 }}
-                slidesPerView={1}
-              >
+                slidesPerView={1}>
                 <SwiperSlide>
-                  <StaticImage src="../images/top_slide01.jpg" width={560} height={388} alt="" />
+                  <GatsbyImage image={slide1ImageData} alt="" />
                 </SwiperSlide>
                 <SwiperSlide>
-                  <StaticImage src="../images/top_slide02.jpg" width={560} height={388} alt="" />
+                  <GatsbyImage image={slide2ImageData} alt="" />
                 </SwiperSlide>
                 <SwiperSlide>
-                  <StaticImage src="../images/top_slide03.jpg" width={560} height={388} alt="" />
+                  <GatsbyImage image={slide3ImageData} alt="" />
                 </SwiperSlide>
                 <SwiperSlide>
-                  <StaticImage src="../images/top_slide04.jpg" width={560} height={388} alt="" />
+                  <GatsbyImage image={slide4ImageData} alt="" />
                 </SwiperSlide>
                 <SwiperSlide>
-                  <StaticImage src="../images/top_slide05.jpg" width={560} height={388} alt="" />
+                  <GatsbyImage image={slide5ImageData} alt="" />
                 </SwiperSlide>
               </Swiper>
             </div>
@@ -109,7 +140,11 @@ const Index = () => {
               <h1>オンラインダイエット セレンディピティ</h1>
               <h2>栄養学 ワークアウト モチベーション</h2>
               <h3>
-                <span className="txt20">究極の個別オンラインダイエット指導　全国対応</span>
+                <span className="txt20">
+                  究極の個別オンラインダイエット指導
+                  <br />
+                  全国対応
+                </span>
               </h3>
               <p>
                 美しいボディラインを創りながら痩せていくこと”これこそ私がお伝えしていくダイエット法です。
@@ -120,11 +155,15 @@ const Index = () => {
           </div>
           <div className="main_diet_box">
             <div className="main_diet_l">
-              <img src="/images/main_diet_02.jpg" alt="" />
+              <GatsbyImage image={main2ImageData} alt="" />
             </div>
             <div className="main_diet_r">
               <h2>オンラインダイエットプログラムで得られるメリット</h2>
-              <h3>このオンラインダイエットプログラムで解消できる悩み</h3>
+              <h3>
+                このオンラインダイエットプログラムで
+                <br />
+                解消できる悩み
+              </h3>
               <p>以下のような悩みをお持ちの方が理想の体型へと変わっていくためのサポートをさせていただきます。</p>
               <ul className="list01">
                 <li>
@@ -166,15 +205,15 @@ const Index = () => {
               </p>
             </div>
             <div className="main_diet_l_2">
-              <img src="/images/main_diet_03.png" width={480} height={535} alt="" />
+              <GatsbyImage image={main3ImageData} alt="" />
             </div>
           </div>
         </Section>
         <Section id="course">
           <div className="flex-wrap">
-            <CourseBox course="silver" title="シルバーコース" />
-            <CourseBox course="gold" title="ゴールドコース" />
-            <CourseBox course="platinum" title="プラチナコース" />
+            <CourseBox course="silver" title="シルバーコース" imageData={silverImageData} />
+            <CourseBox course="gold" title="ゴールドコース" imageData={goldImageData} />
+            <CourseBox course="platinum" title="プラチナコース" imageData={platinumImageData} />
           </div>
         </Section>
 
