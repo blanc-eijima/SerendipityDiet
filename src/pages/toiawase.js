@@ -1,14 +1,10 @@
 import React from "react";
-import { Link } from "gatsby";
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import Layout from "../components/Layout";
 import Section from "../components/Section";
 import Seo from "../components/Seo";
 const pagemeta = {
   title: `Contact | オンラインダイエット｜最強に痩せる食事と運動を指導する究極のプログラム`, //このページのタイトル
-  description: `オンラインダイエットプログラムについてのご質問・ご相談を承ります。お客様の疑問やお悩みに寄り添い、丁寧にサポートいたします。お気軽にお問い合わせください。`, //このページのディスクリプション
+  description: `オンラインダイエットプログラムに関するご質問・ご相談はこちらのフォームよりお問い合わせください。専門スタッフが丁寧にご対応いたします。`, //このページのディスクリプション
   keyword: `オンラインダイエット,ダイエットプログラム,セレンディピティ,栄養管理,運動プラン,パーソナルコーチ,ダイエットコーチ,コーチング,健康的なライフスタイル,持続可能なダイエット`,
   subtitle: `Contact`, //このページの見出し
   slug: `toiawase`, //このページのslug
@@ -29,8 +25,8 @@ const jsonLd = {
         {
           "@type": "ListItem",
           position: 2,
-          item: `${siteurl}${pagemeta.slug}/`,
-          name: `${pagemeta.subtitle}`,
+          item: `${siteurl}${pagemeta.parentSlug}/`,
+          name: `${pagemeta.parentTitle}`,
         },
       ],
     },
@@ -71,70 +67,75 @@ const Toiawase = () => {
   return (
     <>
       <Layout>
-        <Section id={pagemeta.slug} svg={true} title={pagemeta.subtitle} sub={true}>
+        <Section id="contact" svg={true} title={pagemeta.subtitle} slug={pagemeta.parentSlug} sub={true}>
           <h1>{pagemeta.subtitle}</h1>
-
-          <h2>究極のダイエットをお手伝いするために無料電話相談を承ります。</h2>
-          <h3>まずはお気軽に、お問い合わせ下さい。</h3>
-          <p>できるだけ早く対応させていただきます。</p>
-          <ul class="tel_num">
-            <li>
-              <a href="mailto:contact@serendipity-diet.com">
-                <FontAwesomeIcon icon={faEnvelope} />
-                contact@serendipity-ultimatediet.com
-              </a>
-            </li>
-            <li>
-              <a href="tel:08045703907">
-                <FontAwesomeIcon icon={faPhone} />
-                080-4570-3907
-              </a>
-            </li>
-          </ul>
-          <p>お問い合わせの際は、以下プライバシーポリシーに同意いただいた後、表示される応募フォームへご入力お願い致します。</p>
-          <div className="privacypolicy">
-            <h4>1.個人情報の取得について</h4>
-
-            <p>当方は、適法かつ公正な手段によって個人情報を取得致します。</p>
-
-            <h4>2.個人情報の利用について</h4>
-
-            <p>
-              (1) 当方は、個人情報を、取得の際に示した利用目的の範囲内で、業務の遂行上必要な限りにおいて利用します。
-              <br />
-              (2) 当方は、個人情報を第三者との間で共同利用し、または、個人情報の取扱いを第三者に委託する場合には、当該第三者につき厳正な調査を行ったうえ秘密を保持させるために、適正な監督を行います。
-            </p>
-
-            <h4>3.個人情報の第三者提供について</h4>
-
-            <p>当方は、法令に定める場合を除き、個人情報を事前に本人の同意を得ることなく第三者に提供しません。</p>
-
-            <h4>4.個人情報の管理について</h4>
-
-            <p>
-              (1) 当方は、個人情報を安全に管理致します。
-              <br />
-              (2) 当方は、個人情報の紛失、破壊、改ざん及び漏えいなどを防止するため、不正アクセス、コンピュータウィルス等に対する適正な情報セキュリティ対策を講じます。
-              <br />
-              (3)当方は、個人情報を持ち出し、外部へ送信する等により漏えいさせません。
-            </p>
-
-            <h4>5.個人情報の開示・訂正・利用停止・消去について</h4>
-
-            <p>当方は、本人が自己の個人情報について、開示・訂正・利用停止・消去等を求める要求ある場合には、本人確認の上、適切に対処します。</p>
-          </div>
-          <ul class="bt_list">
-            <li class="center w20p">
-              <Link class="bt01" to="/toiawase-form/">
-                同意する
-              </Link>
-            </li>
-            <li class="center w20p">
-              <Link class="bt01" to="/">
-                同意しない
-              </Link>
-            </li>
-          </ul>
+          <h2>お問い合わせフォーム</h2>
+          <p>
+            <span className="must">必須</span>は必ずご入力ください。
+          </p>
+          <form action="https://ssgform.com/s/zg5XZZHyWBqQ" method="post" id="mailform">
+            <div style={{ display: "none" }}>
+              <input type="text" name="wana" />
+            </div>
+            <table className="form">
+              <tbody>
+                <tr>
+                  <th>
+                    お名前<span className="must">必須</span>
+                  </th>
+                  <td>
+                    <input type="text" name="名前" size={30} required="required" />
+                  </td>
+                </tr>
+                <tr>
+                  <th>フリガナ</th>
+                  <td>
+                    <input type="text" name="フリガナ" size={30} data-charcheck="zenkaku" />
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    メールアドレス<span className="must">必須</span>
+                  </th>
+                  <td>
+                    <input type="email" data-type="email" name="email" size={40} required="required" />
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    確認用メールアドレス<span className="must">必須</span>
+                  </th>
+                  <td>
+                    <input type="email" data-type="email" name="confirm_email" data-post-disable={1} size={40} required="required" />
+                  </td>
+                </tr>
+                <tr>
+                  <th>電話番号</th>
+                  <td>
+                    <input type="tel" data-type="tel" name="電話番号" size={30} data-min={9} />
+                  </td>
+                </tr>
+                <tr>
+                  <th>お問い合わせ内容</th>
+                  <td>
+                    <textarea name="備考欄" rows={10} cols={60} defaultValue={""} />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <ul className="bt_list">
+              <li>
+                <button type="submit" className="bt01">
+                  送信する
+                </button>
+              </li>
+              <li>
+                <button type="reset" className="bt01">
+                  リセット
+                </button>
+              </li>
+            </ul>
+          </form>
         </Section>
       </Layout>
     </>
