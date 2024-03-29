@@ -3,7 +3,6 @@ import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const CourseBox = ({ course, title, imageData }) => {
-  const imageUrl = `/images/course_${course}.jpg`;
   const iconUrl = `/images/${course}_icon.png`;
   const courseClass = `cource_title ${course}`;
   const detailUrl = `/plan/#${course}`;

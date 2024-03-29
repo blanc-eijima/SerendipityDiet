@@ -1925,3 +1925,56 @@ textarea:focus::placeholder {
     }
   }
 }
+
+.foot-nav {
+  position: fixed;
+  right: -1200px; /* スライドイン前の位置 */
+  bottom: 0;
+  transition: right 0.3s ease-in-out;
+  z-index: 100;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  width: 100%;
+  li {
+    width: calc((100% - 5px * 1) / 2);
+    text-align: center;
+
+    a {
+      font-size: 1.6rem;
+    }
+    &.mail_bt {
+      a {
+        background-color: #00a89a;
+        padding: 10px;
+        display: block;
+        color: #fff;
+        font-weight: 600;
+        border-top: #000 solid 3px;
+        border-right: #000 solid 3px;
+        .fa-envelope {
+          margin-right: 5px;
+        }
+      }
+    }
+    &.tel_bt {
+      a {
+        background-color: #ff003b;
+        padding: 10px;
+        display: block;
+        color: #fff;
+        font-weight: 600;
+        border-top: #000 solid 3px;
+        border-left: #000 solid 3px;
+        .fa-phone {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}
+
+.foot-nav.visible {
+  right: 0; /* スライドイン後の位置 */
+  bottom: 0;
+}
