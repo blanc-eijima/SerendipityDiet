@@ -84,8 +84,8 @@ const About = () => {
               <p>実は、以前の私はアスリートだった頃、身長174㎝で体重68㎏あり、体脂肪は推定で14%くらいありました。</p>
               <p>運動量が多いのに、いろんなことをどんなに工夫しても無駄な脂肪が落ちず、身体がしぼれなかったのです。</p>
               <p>強度の高いトレーニングにキツイ食事制限を長期間行ったことで体調を崩してドクターストップがかかり「私は本当に大丈夫なのだろうか？」と不安になりました。</p>
-              <div className="image_container">
-                <img src="/images/liver.webp" width={600} height={400} alt="liver image" />
+              <div className="prof_img">
+                <img src="/images/liver.jpg" width={600} height={400} alt="liver image" />
               </div>
               <p>「私は本当に大丈夫なのだろうか？」と不安になりました。</p>
               <p>しかし、体調を崩した原因（過度のトレーニング、キツイ食事制限）を一番理解していたのは自分自身でした。</p>
