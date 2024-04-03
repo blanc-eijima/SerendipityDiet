@@ -1357,6 +1357,11 @@ a:hover {
   }
 }
 
+.prof_img_intxt img {
+  max-width: 100%;
+  height: auto;
+}
+
 @media screen and (min-width: 769px) {
   .order1 {
     order: 1;
