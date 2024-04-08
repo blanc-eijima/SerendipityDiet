@@ -97,47 +97,14 @@ const Index = ({ data }) => {
   return (
     <>
       <Layout>
-        <Section id="diet" svg={true}>
-          <div className="main_diet_box">
-            <div className="main_diet_l">
-              <Swiper
-                modules={[EffectFade, Autoplay]}
-                effect={"fade"}
-                autoplay={{
-                  delay: 3500,
-                  disableOnInteraction: false,
-                }}
-                className="mySwiper"
-                onSlideChange={() => console.log("slide change")}
-                onSwiper={(swiper) => console.log(swiper)}
-                breakpoints={{
-                  768: {
-                    slidesPerView: 1,
-                  },
-                  1024: {
-                    slidesPerView: 1,
-                  },
-                }}
-                slidesPerView={1}>
-                <SwiperSlide>
-                  <GatsbyImage image={slide1ImageData} alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <GatsbyImage image={slide2ImageData} alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <GatsbyImage image={slide3ImageData} alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <GatsbyImage image={slide4ImageData} alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <GatsbyImage image={slide5ImageData} alt="" />
-                </SwiperSlide>
-              </Swiper>
-            </div>
-            <div className="main_diet_r">
-              <h1>オンラインダイエット セレンディピティ</h1>
+        <div id="mainvisual">
+          <div className="main_v_l">
+            <div className="txt_inner">
+              <h1>
+                オンラインダイエット
+                <br />
+                セレンディピティ
+              </h1>
               <h2>栄養学 ワークアウト モチベーション</h2>
               <h3>
                 <span className="txt20">
@@ -153,6 +120,46 @@ const Index = ({ data }) => {
               </p>
             </div>
           </div>
+          <div className="main_v_r">
+            <Swiper
+              modules={[EffectFade, Autoplay]}
+              effect={"fade"}
+              autoplay={{
+                delay: 3500,
+                disableOnInteraction: false,
+              }}
+              className="mySwiper"
+              onSlideChange={() => console.log("slide change")}
+              onSwiper={(swiper) => console.log(swiper)}
+              breakpoints={{
+                768: {
+                  slidesPerView: 1,
+                },
+                1024: {
+                  slidesPerView: 1,
+                },
+              }}
+              slidesPerView={1}>
+              <SwiperSlide>
+                <GatsbyImage image={slide1ImageData} alt="" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <GatsbyImage image={slide2ImageData} alt="" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <GatsbyImage image={slide3ImageData} alt="" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <GatsbyImage image={slide4ImageData} alt="" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <GatsbyImage image={slide5ImageData} alt="" />
+              </SwiperSlide>
+            </Swiper>
+          </div>
+        </div>
+
+        <Section id="diet" svg={true}>
           <div className="main_diet_box">
             <div className="main_diet_l">
               <GatsbyImage image={main2ImageData} alt="" />
