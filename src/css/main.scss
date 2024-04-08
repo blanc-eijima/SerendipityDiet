@@ -911,7 +911,10 @@ a:hover {
     .txt_inner {
       padding: 80px 0 80px 80px;
       position: relative;
-      z-index: 10;
+      z-index: 4;
+      @media screen and (min-width: 1281px) {
+        margin-left: 100px;
+      }
       @media not screen and (min-width: 1281px) {
         padding: 40px 0 40px 40px;
       }
@@ -936,6 +939,7 @@ a:hover {
       }
       h2 {
         font-size: 4rem;
+        color: #ff003b;
         @media not screen and (min-width: 1281px) {
           font-size: 3rem;
         }
@@ -1007,6 +1011,7 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   position: relative;
+  justify-content: space-between;
   z-index: 1;
   margin-bottom: 40px;
 }
@@ -1024,8 +1029,8 @@ a:hover {
 }
 
 .main_diet_r_2 {
-  width: 60%;
-  padding: 3%;
+  width: 58%;
+  padding: 3% 0;
 }
 
 .main_diet_l img,
@@ -1097,6 +1102,7 @@ a:hover {
   top: 2%;
   left: 2%;
   transform: rotate(-15deg);
+  z-index: 1;
 }
 
 .cource_title {
@@ -1217,6 +1223,32 @@ a:hover {
   }
 }
 
+.voice_img {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 70%;
+  margin: 20px auto;
+  @media not screen and (min-width: 1025px) {
+    width: 90%;
+  }
+  .voice_img_inner {
+    width: 400px;
+    padding: 20px;
+    @media not screen and (min-width: 769px) {
+      width: 48%;
+    }
+    @media not screen and (min-width: 766px) {
+      width: 100%;
+    }
+    p {
+      color: #ff003b;
+      font-size: 2.4rem;
+      font-weight: 900;
+    }
+  }
+}
+
 #subpage .main-content .sub_main {
   position: relative;
   z-index: 1;
@@ -1229,6 +1261,8 @@ a:hover {
   }
 }
 #diet,
+#voice,
+#course,
 #subpage {
   .main-content {
     position: relative;
@@ -1528,6 +1562,58 @@ a:hover {
 .prof_img_intxt img {
   max-width: 100%;
   height: auto;
+}
+
+#consultation .main-content {
+  position: relative;
+  z-index: 1;
+}
+
+#soudan {
+  background-image: url(../images/denwa-soudan_bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.6);
+  background-blend-mode: darken;
+  margin-top: 130px;
+  margin-bottom: -130px;
+  min-height: 450px;
+  display: flex;
+  flex-wrap: wrap;
+  @media not screen and (min-width: 769px) {
+    margin-top: 80px;
+  }
+  .main-content {
+    opacity: 1;
+    text-align: center;
+    padding: 30px 0 120px 0;
+    @media not screen and (min-width: 769px) {
+      padding: 60px 0 180px 0;
+    }
+    @media not screen and (min-width: 766px) {
+      padding: 20px 20px 140px;
+    }
+    h2 {
+      text-align: center;
+    }
+    .list01 {
+      width: 80%;
+      margin: 0 auto;
+      @media not screen and (min-width: 766px) {
+        width: 100%;
+      }
+      li {
+        display: inline-block;
+        margin: 10px;
+        font-size: 1.4rem;
+        @media not screen and (min-width: 766px) {
+          text-align: left;
+          margin: 10px 0;
+          display: block;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 769px) {

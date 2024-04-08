@@ -88,7 +88,10 @@ const Index = ({ data }) => {
   const slide5ImageData = getImageData(data.allFile, "top_slide05.jpg");
 
   const main2ImageData = getImageData(data.allFile, "main_diet_02.jpg");
-  const main3ImageData = getImageData(data.allFile, "main_diet_03.png");
+  const main3ImageData = getImageData(data.allFile, "main_diet_03.jpg");
+
+  const voiceBefore = getImageData(data.allFile, "voice_before_01.jpg");
+  const voiceAfter = getImageData(data.allFile, "voice_after_01.jpg");
 
   const silverImageData = getImageData(data.allFile, "course_silver.jpg");
   const goldImageData = getImageData(data.allFile, "course_gold.jpg");
@@ -216,7 +219,40 @@ const Index = ({ data }) => {
             </div>
           </div>
         </Section>
+        <Section id="voice">
+          <h2>オンラインダイエット</h2>
+          <h3>お客様の声 Voice</h3>
+          <h3>Ｔａｄａｓｈｉ Ｏｋａｄａ（岡田忠士）</h3>
+          <p>４２歳　身長１６２cm　 体重６０キロ　⇒　５３キロ　７ヵ月</p>
+
+          <div className="voice_img">
+            <div className="voice_img_inner">
+              <p>Before</p>
+              <GatsbyImage image={voiceBefore} alt="" />
+            </div>
+            <div className="voice_img_inner">
+              <p>After</p>
+              <GatsbyImage image={voiceAfter} alt="" />
+            </div>
+          </div>
+
+          <p>自宅トレーニングで成功。究極、文句を言う前にイヤでもやることです。</p>
+          <p>自分は週に４～５回のペースで運動をやってます。</p>
+          <p>わからないことが出てきたらすぐに調べるようにしたが、それぞれ言うことが違うため試しながら何が良いかを見つけてきました。</p>
+          <p>心掛けたことはたくさんありますが、継続してやること、ハイカロリーの物を極力食べない、加工食品やポテチ、揚げ物、お菓子など脂質の多い物を食べない、水分を多く摂ることを心掛けたがジュースやお酒は飲まない、筋肉が喜ぶ栄養素であるタンパク質と白米（炭水化物）と摂る、朝に大量の排泄を出す、人口調味料などのアステルパームもできるだけ避けてきた。</p>
+          <p>習慣づけばもうこっちのもの。</p>
+          <p>寝起きが良くなり、睡眠の質もだいぶ上がり、時間を上手く使えるようにもなったのがわかります。</p>
+          <p>健康診断でコレステロール値が若干高めと言われていたが筋トレと食事改善で次の年の健康診断はバッチリ！</p>
+          <p>１日２食などを試しましたが、結果的に３食摂るほうが良いこともわかった。</p>
+          <p>筋トレしだして代謝が上がったので風邪をひかなくなりました。</p>
+          <p>身体に変化が出てきたら自分に自信もついてきた。</p>
+          <p>褒められたら嬉しかったし、やってきて、頑張ってきて良かったと思う。</p>
+          <p>筋トレはメリットしかない。お金はかからないしどこでもできる。</p>
+          <p>すぐに結果を求めすぎてもダメ、すぐに結果が出ないからこそ面白いと自分は思います。</p>
+        </Section>
         <Section id="course">
+          <h2>オンラインダイエット</h2>
+          <h3>PLAN</h3>
           <div className="flex-wrap">
             <CourseBox course="silver" title="シルバーコース" imageData={silverImageData} />
             <CourseBox course="gold" title="ゴールドコース" imageData={goldImageData} />
@@ -277,6 +313,39 @@ const Index = ({ data }) => {
         <Section id="column">
           <h2>オンラインダイエットColumn</h2>
           <TopColumn />
+        </Section>
+
+        <Section id="soudan">
+          <h2>オンラインダイエット無料電話相談</h2>
+          <p>オンラインダイエットプログラムで得られるメリットやお悩み等お気軽にご相談ください</p>
+          <p>以下のような悩みをお持ちの方はお気軽にお問い合わせください</p>
+          <ul className="list01">
+            <li>
+              <FontAwesomeIcon icon={faCheck} />
+              30歳を過ぎてお腹がポッコリと出てきた
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faCheck} />
+              産後から体型が急激に崩れた
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faCheck} />
+              40歳を過ぎてから背中や腕に脂肪がついたので夏に薄着ができない
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faCheck} />
+              キレイに痩せて婚活をしたい
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faCheck} />
+              たるんだ脚を引き締めて露出したい
+            </li>
+          </ul>
+          <p>
+            <Link to="/denwa-soudan/" className="bt01" role="button">
+              お申し込みフォームから今すぐ申し込む
+            </Link>
+          </p>
         </Section>
       </Layout>
     </>
