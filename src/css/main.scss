@@ -846,7 +846,7 @@ a:hover {
 #mainvisual {
   display: flex;
   flex-wrap: wrap;
-  height: 85vh;
+  height: calc(86vh - 70px);
   @media not screen and (min-width: 1025px) {
     height: 40vh;
   }
@@ -1004,6 +1004,44 @@ a:hover {
         height: 50vh;
       }
     }
+  }
+}
+
+.terop_txt {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  background-color: #1a1a1a;
+  overflow: hidden;
+  padding: 20px;
+  font-size: 1.6rem;
+  margin-bottom: -5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  @media not screen and (min-width: 766px) {
+    padding: 10px;
+    font-size: 1.4rem;
+  }
+  .terop_inner {
+    width: 90%;
+    max-width: 90%;
+    display: inline-block;
+    overflow: hidden;
+    p {
+      display: inline-block;
+      margin: 0;
+      white-space: nowrap;
+      animation: scrollText 20s linear infinite;
+    }
+  }
+}
+@keyframes scrollText {
+  from {
+    transform: translateX(50%);
+  }
+  to {
+    transform: translateX(-100%);
   }
 }
 

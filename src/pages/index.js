@@ -161,7 +161,11 @@ const Index = ({ data }) => {
             </Swiper>
           </div>
         </div>
-
+        <div className="terop_txt">
+          <div className="terop_inner">
+            <p>・利用者の全員を成功させる方針 ｜ ・簡単でも効率的に痩せていける食事指導 ｜ ・60分の運動でも痩せやすい身体を創るトレーニング指導 ｜ ・成功へ加速させる生活テクニック ｜ ・継続できる力を身につける技術</p>
+          </div>
+        </div>
         <Section id="diet" svg={true}>
           <div className="main_diet_box">
             <div className="main_diet_l">
