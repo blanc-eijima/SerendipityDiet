@@ -101,28 +101,28 @@ const Index = ({ data }) => {
     <>
       <Layout>
         <div id="mainvisual">
-          <div className="main_v_l">
-            <div className="txt_inner">
-              <h1>
-                オンラインダイエット
+          <div className="txt_inner">
+            <h1>
+              オンラインダイエット
+              <br />
+              セレンディピティ
+            </h1>
+            <h2>
+              <span className="txt20">
+                究極の個別オンライン
+                <br className="smp" />
+                ダイエット指導
                 <br />
-                セレンディピティ
-              </h1>
-              <h2>栄養学 ワークアウト モチベーション</h2>
-              <h3>
-                <span className="txt20">
-                  究極の個別オンラインダイエット指導
-                  <br />
-                  全国対応
-                </span>
-              </h3>
-              <p>
-                美しいボディラインを創りながら痩せていくこと”これこそ私がお伝えしていくダイエット法です。
-                <br />
-                この先で継続していける能力を身につけて“6ヵ月～1年”の間に卒業していってもらうこと”をコンセプトに掲げております。
-              </p>
-            </div>
+                全国対応
+              </span>
+            </h2>
+            <p>
+              美しいボディラインを創りながら痩せていくことこれこそ私がお伝えしていくダイエット法です。
+              <br />
+              この先で継続していける能力を身につけて“6ヵ月～1年”の間に卒業していってもらうこと”をコンセプトに掲げております。
+            </p>
           </div>
+          <div className="main_v_l"></div>
           <div className="main_v_r">
             <Swiper
               modules={[EffectFade, Autoplay]}
@@ -198,7 +198,7 @@ const Index = ({ data }) => {
                 </li>
                 <li>
                   <FontAwesomeIcon icon={faCheck} />
-                  たるんだ脚を引き締めて露出したい
+                  たるんだ脚を引き締めてスタイル良くなりたい
                 </li>
               </ul>
             </div>
@@ -206,7 +206,20 @@ const Index = ({ data }) => {
           <div className="main_diet_box">
             <div className="main_diet_r_2">
               <h2>セレンディピティダイエット</h2>
-              <h3>美しいボディラインを創りながら痩せていくこと”これこそ私がお伝えしていくオンラインダイエットコーチングです。</h3>
+              <h3>美しいボディラインを創りながら痩せていくこと、これこそ私がお伝えしていくオンラインダイエットコーチングです。</h3>
+              <p>
+                ダイエットはその時だけ一時的に行うことではなく生活習慣です。
+                <br />
+                健康で美しいボディラインを創るための生活習慣を身につけていくことがとても重要です。
+                <br />
+                更には脂肪を燃焼させるためのエンジンを備えた身体にしていくことも必要です。
+                <br />
+                正しいダイエットは運動と食事だけではなく生活のあらゆることと繋がっております。
+                <br />
+                この先で継続していける能力を身につけて
+                <br />
+                “６ヵ月～１年の間に卒業していってもらうこと”をコンセプトに揚げております。
+              </p>
               <p>
                 私は「本当のダイエットは、美しい見た目と健康とともにあるべき」だと考えております。
                 <br />
@@ -253,15 +266,6 @@ const Index = ({ data }) => {
           <p>褒められたら嬉しかったし、やってきて、頑張ってきて良かったと思う。</p>
           <p>筋トレはメリットしかない。お金はかからないしどこでもできる。</p>
           <p>すぐに結果を求めすぎてもダメ、すぐに結果が出ないからこそ面白いと自分は思います。</p>
-        </Section>
-        <Section id="course">
-          <h2>オンラインダイエット</h2>
-          <h3>PLAN</h3>
-          <div className="flex-wrap">
-            <CourseBox course="silver" title="シルバーコース" imageData={silverImageData} />
-            <CourseBox course="gold" title="ゴールドコース" imageData={goldImageData} />
-            <CourseBox course="platinum" title="プラチナコース" imageData={platinumImageData} />
-          </div>
         </Section>
 
         <Section id="qa" className="qa-section">
@@ -314,15 +318,28 @@ const Index = ({ data }) => {
           </div>
         </Section>
 
+        <Section id="course">
+          <h2>オンラインダイエット PLAN</h2>
+          <div className="flex-wrap">
+            <CourseBox course="silver" title="シルバーコース" imageData={silverImageData} />
+            <CourseBox course="gold" title="ゴールドコース" imageData={goldImageData} />
+            <CourseBox course="platinum" title="プラチナコース" imageData={platinumImageData} />
+          </div>
+        </Section>
+
         <Section id="column">
           <h2>オンラインダイエットColumn</h2>
           <TopColumn />
         </Section>
 
         <Section id="soudan">
-          <h2>オンラインダイエット無料電話相談</h2>
-          <p>オンラインダイエットプログラムで得られるメリットやお悩み等お気軽にご相談ください</p>
-          <p>以下のような悩みをお持ちの方はお気軽にお問い合わせください</p>
+          <h2>まずは電話で無料相談。</h2>
+          <p>
+            トレーニング中など電話に出れないことは多いですが、こちらから折り返させていただき、
+            <br />
+            無料電話相談（ビデオ通話も可能）の日程を打合せさせていただきます。
+          </p>
+
           <ul className="list01">
             <li>
               <FontAwesomeIcon icon={faCheck} />
@@ -342,7 +359,7 @@ const Index = ({ data }) => {
             </li>
             <li>
               <FontAwesomeIcon icon={faCheck} />
-              たるんだ脚を引き締めて露出したい
+              たるんだ脚を引き締めてスタイル良くなりたい
             </li>
           </ul>
           <p>
