@@ -146,7 +146,7 @@ select {
   #header-inner {
     width: 1400px;
     max-width: 100%;
-    padding: 15px;
+    padding: 10px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -154,6 +154,7 @@ select {
     justify-content: space-between;
     @media screen and (max-width: 1280px) {
       width: 100%;
+      padding: 0 10px;
     }
     @media screen and (max-width: 1024px) {
       width: 100%;
@@ -163,18 +164,23 @@ select {
       position: relative;
     }
     .h_logo {
-      width: 25%;
+      width: 200px;
+      @media screen and (max-width: 1280px) {
+        width: 15%;
+      }
       @media screen and (max-width: 1024px) {
-        width: 100%;
+        width: 150px;
         padding: 0;
         position: relative;
         z-index: 2;
         text-align: center;
       }
       a {
-        display: block;
+        display: flex;
+        justify-content: center;
         padding: 0;
         img {
+          max-width: 100%;
           transition: all 0.3s ease;
         }
         &:hover {
@@ -208,11 +214,14 @@ select {
       }
     }
     .h_nav {
-      padding: 20px 0;
+      padding: 10px 0;
       width: 75%;
       display: flex;
       justify-content: flex-end;
       align-items: center;
+      @media not screen and (min-width: 1281px) {
+        padding: 10px 0;
+      }
       @media not screen and (min-width: 1025px) {
         position: fixed;
         top: 0;
@@ -317,7 +326,7 @@ select {
       @media not screen and (min-width: 1025px) {
         position: fixed;
         z-index: 9999; // ボタンを最前面に
-        top: 30px;
+        top: 15px;
         right: 10px;
         cursor: pointer;
         width: 50px;
@@ -364,7 +373,6 @@ select {
         }
       }
       @media not screen and (min-width: 769px) {
-        top: 20px;
         right: 10px;
       }
     }
@@ -802,18 +810,18 @@ section {
   h1 {
     font-size: 3.4rem;
     margin: 20px 0;
-    font-weight: 700;
+    font-weight: bold;
   }
 
   h2 {
     text-align: left;
     font-size: 3rem;
     margin: 20px 0;
-    font-weight: 700;
+    font-weight: bold;
   }
 
   h3 {
-    font-weight: 900;
+    font-weight: bold;
     font-size: 3.6rem;
     margin-bottom: 20px;
     @media screen and (max-width: 768px) {
@@ -854,16 +862,18 @@ section > div.svg_bg {
   overflow: hidden;
   position: relative;
   @media screen and (min-width: 1281px) {
-    height: calc(100vh - (117px + 64px));
+    height: calc(100vh - (88px + 64px));
   }
   @media not screen and (min-width: 1281px) {
-    height: calc(100vh - (117px + 64px));
+    height: calc(100vh - (68px + 41px));
   }
+
   @media not screen and (min-width: 1025px) {
-    height: calc(70vh - 64px);
+    height: calc(50vh - 41px);
   }
-  @media not screen and (min-width: 1025px) {
-    height: calc(50vh - 64px);
+
+  @media screen and (orientation: landscape) and (max-width: 1024px) {
+    height: calc(100vh - (78px + 41px));
   }
 
   .txt_inner {
@@ -885,6 +895,7 @@ section > div.svg_bg {
       padding: 20px;
     }
     @media not screen and (min-width: 766px) {
+      width: 100%;
       padding: 20px;
       text-align: right;
       text-shadow: 1px 1px 2px black;
@@ -892,6 +903,7 @@ section > div.svg_bg {
       align-items: flex-end;
       flex-direction: column;
       flex-wrap: nowrap;
+      justify-content: flex-end;
     }
     h1 {
       font-size: 6rem;
@@ -906,6 +918,9 @@ section > div.svg_bg {
       @media not screen and (min-width: 766px) {
         font-size: 3rem;
       }
+      @media not screen and (min-width: 321px) {
+        font-size: 2.6rem;
+      }
     }
     h2 {
       font-size: 4rem;
@@ -917,27 +932,29 @@ section > div.svg_bg {
         font-size: 3rem;
       }
       @media not screen and (min-width: 766px) {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
+        color: #fff;
       }
     }
 
     h1,
     h2 {
-      margin: 20px 0;
+      margin: 10px 0;
       font-family: serif;
-      @media not screen and (min-width: 769px) {
+      @media not screen and (min-width: 1281px) {
         margin: 10px 0;
       }
     }
     p {
       font-size: 2rem;
       line-height: 2;
-      @media not screen and (min-width: 1025px) {
+      @media not screen and (min-width: 1281px) {
         font-size: 1.6rem;
       }
       @media not screen and (min-width: 766px) {
         font-size: 1.2rem;
         padding-left: 20%;
+        display: none;
       }
     }
   }
@@ -980,6 +997,7 @@ section > div.svg_bg {
       @media not screen and (min-width: 769px) {
         right: -8vw;
         border-right: 10vw solid transparent;
+        border-bottom: 140vw solid #000;
       }
       @media not screen and (min-width: 766px) {
         right: 0;
@@ -1036,7 +1054,7 @@ section > div.svg_bg {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  @media not screen and (min-width: 766px) {
+  @media not screen and (min-width: 1281px) {
     padding: 10px;
     font-size: 1.4rem;
   }
@@ -1659,6 +1677,14 @@ section#subpage > .svg_bg {
       @media not screen and (min-width: 766px) {
         font-size: 3rem;
       }
+      @media not screen and (min-width: 366px) {
+        font-size: 2.4rem;
+      }
+    }
+    p {
+      @media not screen and (min-width: 769px) {
+        font-size: 1.4rem;
+      }
     }
     .list01 {
       width: 80%;
@@ -1670,10 +1696,11 @@ section#subpage > .svg_bg {
         display: inline-block;
         margin: 10px;
         font-size: 1.4rem;
-        @media not screen and (min-width: 766px) {
+        @media not screen and (min-width: 769px) {
           text-align: left;
           margin: 10px 0;
           display: block;
+          padding: 10px;
         }
       }
     }
@@ -1703,6 +1730,9 @@ section#subpage > .svg_bg {
   position: relative;
   border-radius: 5px;
   cursor: pointer;
+  @media not screen and (min-width: 321px) {
+    font-size: 1.2rem;
+  }
 }
 
 .bt01:hover {
