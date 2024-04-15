@@ -162,7 +162,7 @@ const CategoryPage = ({ data, pageContext }) => {
                       <div className="post_txt">
                         <time dateTime={node.date}>{node.date}</time>
                         <br />
-                        <Link href={"/posts/" + node.postsId + "/"}>{node.title}</Link>
+                        <Link to={"/posts/" + node.postsId + "/"}>{node.title}</Link>
                         <br />
                         {displayedContent}
                       </div>
