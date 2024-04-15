@@ -4,17 +4,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 const BreadCrumbParent = (props) => {
-  const siteurl = "https://serendipity-ultimatediet.com/";
   return (
     <>
       <nav aria-label="Breadcrumb" id="breadcrumb">
         <ul>
           <li>
-            <Link to={siteurl}>ホーム</Link>
+            <Link to="/">ホーム</Link>
           </li>
           <li>
             <FontAwesomeIcon icon={faAngleRight} />
-            <Link to={siteurl + props.slug + "/"}>{props.parentTitle}</Link>
+            <Link to={"/" + props.slug + "/"}>{props.parentTitle}</Link>
           </li>
           <li>
             <FontAwesomeIcon icon={faAngleRight} />
