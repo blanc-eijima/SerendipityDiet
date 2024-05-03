@@ -864,6 +864,10 @@ section > div.svg_bg {
   @media screen and (min-width: 1281px) {
     height: calc(100vh - (88px + 64px));
   }
+  @media screen and (min-width: 1281px) and (max-height: 800px) {
+    height: initial;
+    min-height: calc(100vh - (88px + 64px));
+  }
   @media not screen and (min-width: 1281px) {
     height: calc(100vh - (68px + 41px));
   }
@@ -912,6 +916,9 @@ section > div.svg_bg {
       flex-direction: column;
       flex-wrap: nowrap;
       justify-content: flex-end;
+    }
+    @media screen and (max-height: 480px) {
+      display: block;
     }
     h1 {
       font-size: 6rem;
@@ -973,6 +980,11 @@ section > div.svg_bg {
         display: none;
       }
     }
+    h1,
+    h2,
+    p {
+      width: 100%;
+    }
   }
   .main_v_l {
     width: 36%;
@@ -1002,8 +1014,8 @@ section > div.svg_bg {
     &::after {
       content: "";
       position: absolute;
-      bottom: 0;
-      right: -8vw;
+      right: -11.9vw;
+      top: 0;
       width: 0;
       height: 0;
       border-right: 12vw solid transparent;
