@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-const CourseBox = ({ course, title, imageData }) => {
+const CourseBox = ({ course, title, imageData, courseTxt }) => {
   const iconUrl = `/images/${course}_icon.png`;
   const courseClass = `cource_title ${course}`;
   const detailUrl = `/plan/#${course}`;
@@ -15,6 +15,7 @@ const CourseBox = ({ course, title, imageData }) => {
         </div>
         <div className={courseClass}>{title}</div>
         <div className="cource_img">{image && <GatsbyImage image={image} alt={title + "イメージ画像"} />}</div>
+        {courseTxt && <p>{courseTxt}</p>}
         <p className="center">
           <Link to={detailUrl} className="bt01">
             もっと詳しく
