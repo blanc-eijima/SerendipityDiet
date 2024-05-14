@@ -140,8 +140,7 @@ const Index = ({ data }) => {
                   slidesPerView: 1,
                 },
               }}
-              slidesPerView={1}
-            >
+              slidesPerView={1}>
               <SwiperSlide>
                 <GatsbyImage image={slide1ImageData} alt="" />
               </SwiperSlide>
@@ -240,7 +239,7 @@ const Index = ({ data }) => {
         <Section id="voice">
           <h2>オンラインダイエット</h2>
           <h3>お客様の声 Voice</h3>
-          <h3>Tadashi Okada（岡田忠士）</h3>
+          <h3>Tadashi Okada（岡田忠士）（男性）</h3>
           <hr />
           <p>42歳 身長162cm 体重60キロ ⇒ 53キロ 7ヵ月</p>
 
@@ -268,9 +267,10 @@ const Index = ({ data }) => {
           <p>筋トレはメリットしかない。お金はかからないしどこでもできる。</p>
           <p>すぐに結果を求めすぎてもダメ、すぐに結果が出ないからこそ面白いと自分は思います。</p>
 
-          <h3>R Kawaguchi</h3>
+          <h3 className="mt60">R Kawaguchi（女性）</h3>
           <hr />
           <p>35歳 身長157cm 体重55キロ ⇒ 46キロ 10ヵ月</p>
+          <p>Before・Afterの写真は本人の希望により非公開です</p>
 
           <p>自宅トレーニングで成功。まずは運動のモチベーションを上げるために自分が気に入ったウエアを購入することからスタートしました。</p>
           <p>運動は週に3～4回でやってます。</p>
@@ -342,9 +342,9 @@ const Index = ({ data }) => {
         <Section id="course">
           <h2>オンラインダイエット PLAN</h2>
           <div className="flex-wrap">
-            <CourseBox course="silver" title="シルバーコース" imageData={silverImageData} />
-            <CourseBox course="gold" title="ゴールドコース" imageData={goldImageData} />
-            <CourseBox course="platinum" title="プラチナコース" imageData={platinumImageData} />
+            <CourseBox course="silver" title="シルバーコース" courseTxt="数年間ダイエットを真剣に継続していて、運動熟練者なのに何故か思うようにうまくいかない方のコース。" imageData={silverImageData} />
+            <CourseBox course="gold" title="ゴールドコース" courseTxt="いろいろ試したし食事も運動もそれなりに気を遣ったのに続かなかったり、うまくいかなかった方のコース。" imageData={goldImageData} />
+            <CourseBox course="platinum" title="プラチナコース" courseTxt="着実に知識をつけていきながら確実に結果を残していきたい方にお勧め。最短で結果へ導く究極のコースです！！" imageData={platinumImageData} />
           </div>
         </Section>
 
