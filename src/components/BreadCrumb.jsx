@@ -9,7 +9,7 @@ const BreadCrumb = (props) => {
       <nav aria-label="Breadcrumb" id="breadcrumb">
         <ul>
           <li>
-            <Link to="/">ホーム</Link>
+            <Link to="/">オンラインダイエット</Link>
           </li>
           <li>
             <FontAwesomeIcon icon={faAngleRight} />
