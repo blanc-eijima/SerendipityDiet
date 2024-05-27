@@ -2,6 +2,9 @@ import React from "react";
 import Layout from "../components/Layout";
 import Section from "../components/Section";
 import Seo from "../components/Seo";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "gatsby";
 
 const pagemeta = {
   title: `About us | オンラインダイエット｜最強に痩せる食事と運動を指導する究極のプログラム`, //このページのタイトル
@@ -87,7 +90,6 @@ const About = () => {
               <div className="prof_img_intxt">
                 <img src="/images/liver.jpg" width={400} alt="肝臓" />
               </div>
-              <p>「私は本当に大丈夫なのだろうか？」と不安になりました。</p>
               <p>しかし、体調を崩した原因（過度のトレーニング、キツイ食事制限）を一番理解していたのは自分自身でした。</p>
               <p>やがて年月が経ち年齢的なこともあって競技会に出場しなくなりました。</p>
               <p>運動自体は継続しておりましたがアスリート時代の約3分の1程です。</p>
@@ -131,6 +133,43 @@ const About = () => {
           <p>痩せたい、スタイルが良くなりたいと本気で願望を持って申し込んでくれる方には、あなたに寄り添い、誠心誠意で私も本気で対応させていただきます。</p>
           <p>今までいろいろ試してきたけど成功しなかった方やダイエット指導を受けたことがあるけど続かなかった方も大歓迎です。</p>
           <p>男女は問いません。 運動経験の有無も問いません。</p>
+        </Section>
+
+        <Section id="soudan">
+          <h2>まずは電話で無料相談。</h2>
+          <p>
+            コーチング中など電話に出れないことが多いので、まずは下記フォームから無料電話相談をお申込みください。
+            <br className="pc" />
+            こちらから折り返させていただき、無料電話相談（ビデオ通話も可能）の日程を打合せさせていただきます。
+          </p>
+
+          <ul className="list01">
+            <li>
+              <FontAwesomeIcon icon={faCheck} />
+              30歳を過ぎてお腹がポッコリと出てきた
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faCheck} />
+              産後から体型が急激に崩れた
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faCheck} />
+              40歳を過ぎてから背中や腕に脂肪がついたので夏に薄着ができない
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faCheck} />
+              キレイに痩せて婚活をしたい
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faCheck} />
+              たるんだ脚を引き締めてスタイル良くなりたい
+            </li>
+          </ul>
+          <p>
+            <Link to="/denwa-soudan/" className="bt01" role="button">
+              無料電話相談を今すぐ申し込む
+            </Link>
+          </p>
         </Section>
       </Layout>
     </>
