@@ -1,6 +1,6 @@
 import React from "react";
 
-exports.onRenderBody = ({ setHeadComponents, setHtmlAttributes }) => {
+export const onRenderBody = ({ setHeadComponents }) => {
   // 既存のHTML属性設定を保持
   setHtmlAttributes({ lang: "ja" });
 
