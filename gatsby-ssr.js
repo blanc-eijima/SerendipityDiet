@@ -1,10 +1,8 @@
 import React from "react";
 
-export const onRenderBody = ({ setHeadComponents }) => {
-  // 既存のHTML属性設定を保持
+export const onRenderBody = ({ setHeadComponents, setHtmlAttributes }) => {
   setHtmlAttributes({ lang: "ja" });
 
-  // Google Analyticsのスクリプトを追加
   setHeadComponents([
     <script key="gatsby-gtag-js" async src="https://www.googletagmanager.com/gtag/js?id=G-6TJH5F48C6" />,
     <script
