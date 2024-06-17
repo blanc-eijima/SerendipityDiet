@@ -80,13 +80,19 @@ const About = () => {
             <a href="https://www.jadp-society.or.jp/" target="_blank" rel="noopener noreferrer">
               一般財団法人日本能力開発推進協会(JADP)
             </a>
-            「ダイエットインストラクター」「ボディメイクインストラクター」
+            <br />
+            「ダイエットインストラクター」
+            <br />
+            「ボディメイクインストラクター」
           </h4>
           <h4>
             <a href="https://diet-kyoukai.com/" target="_blank" rel="noopener noreferrer">
               日本ダイエット健康協会
             </a>
-            「ダイエット検定1級（プロフェッショナルアドバイザー）」「ダイエット検定2級（生活アドバイザー）」
+            <br />
+            「ダイエット検定1級（プロフェッショナルアドバイザー）」
+            <br />
+            「ダイエット検定2級（生活アドバイザー）」
           </h4>
           <div className="prof_box">
             <div className="prof_img">
