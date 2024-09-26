@@ -1,37 +1,37 @@
-import React from "react";
-import { graphql, Link } from "gatsby";
+import React from "react"
+import { graphql, Link } from "gatsby"
 
-import Seo from "../components/Seo";
-import Layout from "../components/Layout";
+import Seo from "../components/Seo"
+import Layout from "../components/Layout"
 
-import dayjs from "dayjs";
-import "dayjs/locale/ja";
-import utc from "dayjs/plugin/utc";
-import timezone from "dayjs/plugin/timezone";
-import Section from "../components/Section";
+import dayjs from "dayjs"
+import "dayjs/locale/ja"
+import utc from "dayjs/plugin/utc"
+import timezone from "dayjs/plugin/timezone"
+import Section from "../components/Section"
 
 const pagemeta = {
   title: `オンラインダイエット｜最強に痩せる食事と運動を指導する究極のプログラム`,
   description: `究極オンラインダイエット指導。簡単でも効率的に痩せていける食事指導。60分の運動でも痩せやすい身体を創るトレーニング指導。食事と運動の効果を更に向上させる生活テクニックを伝授。`,
   keyword: `オンラインダイエット,ダイエットプログラム,セレンディピティ,栄養管理,運動プラン,パーソナルコーチ,ダイエットコーチ,コーチング,健康的なライフスタイル,持続可能なダイエット`,
-};
+}
 
-dayjs.extend(utc);
-dayjs.extend(timezone);
-dayjs.tz.setDefault("Asia/Tokyo");
+dayjs.extend(utc)
+dayjs.extend(timezone)
+dayjs.tz.setDefault("Asia/Tokyo")
 
-const MAX_CONTENT_LENGTH = 30; // 最大文字数を設定してください
+const MAX_CONTENT_LENGTH = 30 // 最大文字数を設定してください
 
 const groupPostsByCategory = (posts) => {
   return posts.reduce((acc, post) => {
-    const categoryId = post.node.category.id;
+    const categoryId = post.node.category.id
     if (!acc[categoryId]) {
-      acc[categoryId] = [];
+      acc[categoryId] = []
     }
-    acc[categoryId].push(post);
-    return acc;
-  }, {});
-};
+    acc[categoryId].push(post)
+    return acc
+  }, {})
+}
 
 export const query = graphql`
   query ($categoryId: String, $limit: Int, $skip: Int) {
@@ -65,7 +65,7 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
 const getJsonLd = (data, siteMetadata, currentPage) => ({
   "@context": "https://schema.org",
@@ -113,7 +113,7 @@ const getJsonLd = (data, siteMetadata, currentPage) => ({
       inLanguage: "ja",
     },
   ],
-});
+})
 
 export const Head = ({ data, siteMetadata, pageContext }) => {
   return (
@@ -121,28 +121,28 @@ export const Head = ({ data, siteMetadata, pageContext }) => {
       <Seo title2={`${pagemeta.title}｜${data.allMicrocmsPosts.edges[0].node.category.name}｜${pageContext.currentPage > 1 ? "ページ" + pageContext.currentPage : ""}`} description={pagemeta.description} />
       <script type="application/ld+json">{JSON.stringify(getJsonLd(data, data.site.siteMetadata, pageContext.currentPage))}</script>
     </>
-  );
-};
+  )
+}
 
 const CategoryPage = ({ data, pageContext }) => {
-  dayjs.locale("ja");
-  const { allMicrocmsPosts } = data;
-  const { category, numPages, currentPage, startPage, endPage } = pageContext;
+  dayjs.locale("ja")
+  const { allMicrocmsPosts } = data
+  const { category, numPages, currentPage, startPage, endPage } = pageContext
 
-  const posts = allMicrocmsPosts.edges;
-  const groupedPosts = groupPostsByCategory(posts);
-  const imageName = "news_img";
+  const posts = allMicrocmsPosts.edges
+  const groupedPosts = groupPostsByCategory(posts)
+  const imageName = "news_img"
   return (
     <>
       <Layout imageName={imageName}>
-        <Section id="subpage" title={data.allMicrocmsPosts.edges[0]?.node.category.id} sub={true}>
+        <Section id="subpage" title={data.allMicrocmsPosts.edges[0]?.node.category.name} sub={true}>
           {Object.entries(groupedPosts).map(([categoryId, posts]) => (
             <React.Fragment key={categoryId}>
               <h1>{categoryId}</h1>
               <div className="post_list">
                 {posts.map(({ node }) => {
-                  const content = stripHTML(node.content);
-                  const displayedContent = content.length > MAX_CONTENT_LENGTH ? content.substring(0, MAX_CONTENT_LENGTH) + "..." : content;
+                  const content = stripHTML(node.content)
+                  const displayedContent = content.length > MAX_CONTENT_LENGTH ? content.substring(0, MAX_CONTENT_LENGTH) + "..." : content
 
                   return (
                     <div className="post_box" key={node.postsId}>
@@ -167,7 +167,7 @@ const CategoryPage = ({ data, pageContext }) => {
                         {displayedContent}
                       </div>
                     </div>
-                  );
+                  )
                 })}
               </div>
             </React.Fragment>
@@ -183,15 +183,15 @@ const CategoryPage = ({ data, pageContext }) => {
 
               {/* ページャーの数字を表示 */}
               {Array.from({ length: 5 }, (_, i) => {
-                const pageNumber = startPage + i; // ページャーの数字を計算
+                const pageNumber = startPage + i // ページャーの数字を計算
                 if (pageNumber <= endPage) {
                   return (
                     <Link key={`pagination-link${pageNumber}`} to={pageNumber === 1 ? `/category/${category.categoryId}` : `/category/${category.categoryId}/${pageNumber}`} className={pageNumber === currentPage ? "current" : ""}>
                       {pageNumber}
                     </Link>
-                  );
+                  )
                 }
-                return null;
+                return null
               })}
 
               {currentPage < numPages && (
@@ -204,15 +204,15 @@ const CategoryPage = ({ data, pageContext }) => {
         </Section>
       </Layout>
     </>
-  );
-};
+  )
+}
 
 // HTMLタグを削除する関数
 function stripHTML(input) {
   if (input === null || input === undefined) {
-    return "";
+    return ""
   }
-  return input.replace(/<[^>]*>?/gm, "");
+  return input.replace(/<[^>]*>?/gm, "")
 }
 
-export default CategoryPage;
+export default CategoryPage
