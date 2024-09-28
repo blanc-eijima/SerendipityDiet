@@ -1,26 +1,26 @@
-import React, { useState } from "react";
-import { Link, graphql } from "gatsby";
-import Layout from "../components/Layout";
-import Section from "../components/Section";
-import CourseBox from "../components/CourseBox";
-import Seo from "../components/Seo";
-import TopColumn from "../components/TopColumn";
-import FaqTxt from "../components/FaqTxt";
+import React, { useState } from "react"
+import { Link, graphql } from "gatsby"
+import Layout from "../components/Layout"
+import Section from "../components/Section"
+import CourseBox from "../components/CourseBox"
+import Seo from "../components/Seo"
+import TopColumn from "../components/TopColumn"
+import FaqTxt from "../components/FaqTxt"
 
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import { GatsbyImage } from "gatsby-plugin-image";
+import "@fortawesome/fontawesome-svg-core/styles.css"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCheck } from "@fortawesome/free-solid-svg-icons"
+import { GatsbyImage } from "gatsby-plugin-image"
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper-bundle.min.css";
-import { EffectFade, Autoplay } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react"
+import "swiper/swiper-bundle.min.css"
+import { EffectFade, Autoplay } from "swiper"
 
 const pagemeta = {
   title: `オンラインダイエットコーチング 全国対応 セレンディピティダイエット`, //このページのタイトル
   description: `オンラインダイエットコーチングで理想の体型を手に入れよう。30代40代の悩みを解消し、健康的に美しく痩せるための食事と運動習慣をサポート。6ヵ月〜1年で卒業できる究極のダイエットプログラムです。`, //このページのディスクリプション
   keyword: `オンラインダイエット,ダイエットプログラム,セレンディピティ,栄養管理,運動プラン,パーソナルコーチ,ダイエットコーチ,コーチング,健康的なライフスタイル,持続可能なダイエット`,
-};
+}
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -50,7 +50,7 @@ const jsonLd = {
       inLanguage: "ja",
     },
   ],
-};
+}
 
 export const Head = () => (
   <>
@@ -58,7 +58,7 @@ export const Head = () => (
     <Seo title2={pagemeta.title} description={pagemeta.description} keyword={pagemeta.keyword} />
     <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
   </>
-);
+)
 
 export const query = graphql`
   query {
@@ -73,29 +73,29 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
 const Index = ({ data }) => {
-  const [openId, setOpenId] = useState(null);
+  const [openId, setOpenId] = useState(null)
   const getImageData = (allFile, filename) => {
-    const file = allFile.edges.find(({ node }) => node.base === filename);
-    return file.node.childImageSharp.gatsbyImageData;
-  };
-  const slide1ImageData = getImageData(data.allFile, "top_slide01.jpg");
-  const slide2ImageData = getImageData(data.allFile, "top_slide02.jpg");
-  const slide3ImageData = getImageData(data.allFile, "top_slide03.jpg");
-  const slide4ImageData = getImageData(data.allFile, "top_slide04.jpg");
-  const slide5ImageData = getImageData(data.allFile, "top_slide05.jpg");
+    const file = allFile.edges.find(({ node }) => node.base === filename)
+    return file.node.childImageSharp.gatsbyImageData
+  }
+  const slide1ImageData = getImageData(data.allFile, "top_slide01.jpg")
+  const slide2ImageData = getImageData(data.allFile, "top_slide02.jpg")
+  const slide3ImageData = getImageData(data.allFile, "top_slide03.jpg")
+  const slide4ImageData = getImageData(data.allFile, "top_slide04.jpg")
+  const slide5ImageData = getImageData(data.allFile, "top_slide05.jpg")
 
-  const main2ImageData = getImageData(data.allFile, "main_diet_02.jpg");
-  const main3ImageData = getImageData(data.allFile, "main_diet_03.jpg");
+  const main2ImageData = getImageData(data.allFile, "main_diet_02.jpg")
+  const main3ImageData = getImageData(data.allFile, "main_diet_03.jpg")
 
-  const voiceBefore = getImageData(data.allFile, "voice_before_01.jpg");
-  const voiceAfter = getImageData(data.allFile, "voice_after_01.jpg");
+  const voiceBefore = getImageData(data.allFile, "voice_before_01.jpg")
+  const voiceAfter = getImageData(data.allFile, "voice_after_01.jpg")
 
-  const silverImageData = getImageData(data.allFile, "course_silver.jpg");
-  const goldImageData = getImageData(data.allFile, "course_gold.jpg");
-  const platinumImageData = getImageData(data.allFile, "course_platinum.jpg");
+  const silverImageData = getImageData(data.allFile, "course_silver.jpg")
+  const goldImageData = getImageData(data.allFile, "course_gold.jpg")
+  const platinumImageData = getImageData(data.allFile, "course_platinum.jpg")
 
   return (
     <>
@@ -140,8 +140,7 @@ const Index = ({ data }) => {
                   slidesPerView: 1,
                 },
               }}
-              slidesPerView={1}
-            >
+              slidesPerView={1}>
               <SwiperSlide>
                 <GatsbyImage image={slide1ImageData} alt="" />
               </SwiperSlide>
@@ -295,7 +294,7 @@ const Index = ({ data }) => {
 
           <div className="qa-container">
             <FaqTxt no="1" title="ビデオ通話での１回の通話時間はどれくらいですか？" openId={openId} setOpenId={setOpenId}>
-              基本的には30分～40分の間です。長く話をすれば良いと言うものではなく、現状に対しての大事な要点を端的に話していきます。初回は長めに時間をとってもらうことが多いです。
+              基本的には60分です。長く話をすれば良いと言うものではなく、現状に対しての大事な要点を端的に話していきます。初回は更に長めに時間をとってもらうことが多いです。
             </FaqTxt>
 
             <FaqTxt no="2" title="仕事の休憩時間や喫茶店から、移動時間や待ち時間などの隙間時間なでもビデオ通話を受けてもらえますか？" openId={openId} setOpenId={setOpenId}>
@@ -392,7 +391,7 @@ const Index = ({ data }) => {
         </Section>
       </Layout>
     </>
-  );
-};
+  )
+}
 
-export default Index;
+export default Index
