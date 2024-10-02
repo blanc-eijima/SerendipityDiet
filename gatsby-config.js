@@ -9,12 +9,12 @@
  */
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-});
+})
 module.exports = {
   siteMetadata: {
-    title: "オンラインダイエット｜最強に痩せる食事と運動を指導する究極のプログラム",
+    title: "オンラインダイエットコーチング 全国対応 3ヵ月で絶大成果のパーソナルダイエット指導",
     keyword: "オンラインダイエット,ダイエットプログラム,セレンディピティ,栄養管理,運動プラン,パーソナルコーチ,ダイエットコーチ,コーチング,健康的なライフスタイル,持続可能なダイエット",
-    description: "究極オンラインダイエット指導。簡単でも効率的に痩せていける食事指導。60分の運動でも痩せやすい身体を創るトレーニング指導。食事と運動の効果を更に向上させる生活テクニックを伝授。",
+    description: "オンラインダイエットコーチングの究極パーソナルダイエット指導はスマホがあれば究極のテクニックを身につけることができます。3ヵ月の絶大成果で婚活バッチリ、産後太りも解消。",
     image: "/images/ogp.jpg",
     url: "https://serendipity-ultimatediet.com",
     siteUrl: "https://serendipity-ultimatediet.com",
@@ -102,4 +102,4 @@ module.exports = {
       },
     },
   ],
-};
+}
