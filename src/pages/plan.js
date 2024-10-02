@@ -177,7 +177,7 @@ const Plan = ({ data }) => {
 
           <div className="paypal-bt" id="paypal-button-container-P-6TT26072SP350245JMW5RCVY"></div>
         </PlanBox>
-        <PlanBox course="gold" title="ゴールドコース" price="39,800" imageData={goldImageData}>
+        <PlanBox course="gold" title="ゴールドコース" price="39,800" imageData={goldImageData} recommended={true}>
           <p>プラン通りにダイエットと進めていったとしても途中で疑問に思うことや、もっとこうしたらいいのではないか？ と思うことが必ず出てくるし、状況も変わってくることが多々あります。</p>
 
           <p>同じ月にもう1度コンサルティングを行うことによって疑問を解決して、状況に応じたプランを再提案させていただくことができるのでシルバーコースよりもモチベーションを高く、更に効率的にダイエットを進めていくことができるおすすめのコースです。</p>

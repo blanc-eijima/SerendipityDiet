@@ -1232,6 +1232,23 @@ section > div.svg_bg {
   width: 100%;
 }
 
+.recommended {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.plan_cont .price-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* 金額とアイコンの間隔を調整 */
+}
+
+.plan_cont .recommended-icon {
+  width: auto; /* 画像の元のアスペクト比を維持 */
+  height: 60px; /* 高さを調整 */
+}
+
 @media screen and (max-width: 1440px) {
   .top_cource_icon img {
     width: 60px;
