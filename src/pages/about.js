@@ -1,10 +1,10 @@
-import React from "react";
-import Layout from "../components/Layout";
-import Section from "../components/Section";
-import Seo from "../components/Seo";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "gatsby";
+import React from "react"
+import Layout from "../components/Layout"
+import Section from "../components/Section"
+import Seo from "../components/Seo"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCheck } from "@fortawesome/free-solid-svg-icons"
+import { Link } from "gatsby"
 
 const pagemeta = {
   title: `About us | オンラインダイエット｜最強に痩せる食事と運動を指導する究極のプログラム`, //このページのタイトル
@@ -12,8 +12,8 @@ const pagemeta = {
   keyword: `オンラインダイエット,ダイエットプログラム,セレンディピティ,栄養管理,運動プラン,パーソナルコーチ,ダイエットコーチ,コーチング,健康的なライフスタイル,持続可能なダイエット`,
   subtitle: `About`, //このページの見出し
   slug: `about`, //このページのslug
-};
-const siteurl = "https://serendipity-ultimatediet.com/";
+}
+const siteurl = "https://serendipity-ultimatediet.com/"
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -58,7 +58,7 @@ const jsonLd = {
       inLanguage: "ja",
     },
   ],
-};
+}
 
 export const Head = () => (
   <>
@@ -66,7 +66,7 @@ export const Head = () => (
     <Seo title2={pagemeta.title} description={pagemeta.description} keyword={pagemeta.keyword} />
     <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
   </>
-);
+)
 
 const About = () => {
   return (
@@ -84,6 +84,8 @@ const About = () => {
             「ダイエットインストラクター」
             <br />
             「ボディメイクインストラクター」
+            <br />
+            「腸活アドバイザー」
           </h4>
           <h4>
             <a href="https://diet-kyoukai.com/" target="_blank" rel="noopener noreferrer">
@@ -137,15 +139,13 @@ const About = () => {
           </div>
           <p>運動が必要なことを話すとほとんどの人は『どんな運動をしたらいいかがわからない。』こう言います。</p>
           <p>基礎代謝を上げて美しいボディラインを創るためにはどこを鍛えて、どのように運動していって、どういう物を食べて行けばいいのか、どういうふうに生活を送っていったらいいのかをご指導させていただきます。</p>
-          <p>私の取り組みは、1週間や1ヵ月で劇的に変わることはありません。</p>
-          <p>なぜかというと、1ヵ月で落として健康に害がないのは体重の約5%が限度です。</p>
-          <p>それに、最初は基礎代謝を上げて脂肪を燃やせるための土台を創ることから始めなければいけません。</p>
-          <p>私が2ヵ月でスムーズに7㎏落ちたのは土台ができていたからなのです。</p>
-          <p>6ヵ月以上はお付き合いできる方をお待ちしております。</p>
+
+          <p>人によって仕事や生活環境が違うことは当然なので、あなたの現状と今のお気持ちを徹底的にヒヤリングして、最善の方法を提案させていただきます。</p>
+
           <div className="prof_img_intxt">
             <img src="/images/note.jpg" width={400} alt="ノート" />
           </div>
-          <p>人によって仕事や生活環境が違うことは当然なので、あなたの現状と今のお気持ちを徹底的にヒヤリングして、最善の方法を提案させていただきます。</p>
+
           <p>効率的に痩せるためには正しい知識を習得し、効率よく生活の中に組み込んでいく必要があります。</p>
           <p>今までずっと続けていたことを変えるのは容易ではありません。むしろ正しいダイエットを続けていくうえではそこが一番辛いところだと考えております。</p>
           <p>痩せたい、スタイルが良くなりたいと本気で願望を持って申し込んでくれる方には、あなたに寄り添い、誠心誠意で私も本気で対応させていただきます。</p>
@@ -191,6 +191,6 @@ const About = () => {
         </Section>
       </Layout>
     </>
-  );
-};
-export default About;
+  )
+}
+export default About
