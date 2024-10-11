@@ -1559,7 +1559,6 @@ section#subpage > .svg_bg {
 .column-category,
 .column-page {
   .main-content {
-    width: 1200px;
     @media not screen and (min-width: 1025px) {
       width: 90%;
     }
@@ -1582,6 +1581,11 @@ section#subpage > .svg_bg {
         @media not screen and (min-width: 1025px) {
           font-size: 2rem;
         }
+      }
+      figure,
+      .eyecatch_img {
+        max-width: 700px;
+        margin: 20px auto;
       }
     }
     aside {
