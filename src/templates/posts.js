@@ -29,15 +29,15 @@ const getJsonLd = (data, siteMetadata) => ({
         {
           "@type": "ListItem",
           position: 2,
-          item: `${siteMetadata.siteUrl}posts/${data.microcmsPosts.postsId}/`,
+          item: `${siteMetadata.siteUrl}/posts/${data.microcmsPosts.postsId}/`,
           name: `${data.microcmsPosts.title}`,
         },
       ],
     },
     {
       "@type": "WebPage",
-      "@id": `${siteMetadata.siteUrl}posts/${data.microcmsPosts.postsId}/`,
-      url: `${siteMetadata.siteUrl}posts/${data.microcmsPosts.postsId}/`,
+      "@id": `${siteMetadata.siteUrl}/posts/${data.microcmsPosts.postsId}/`,
+      url: `${siteMetadata.siteUrl}/posts/${data.microcmsPosts.postsId}/`,
       name: data.microcmsPosts.title,
       description: siteMetadata.defaultDescription,
       inLanguage: "ja",
@@ -75,26 +75,28 @@ const PostPage = ({ data }) => {
 
   return (
     <>
-      <Layout>
-        <Article id={`${data.microcmsPosts.category?.id || "default"}page`} slug={data.microcmsPosts.category?.id ? `/category/${data.microcmsPosts.category.id}/` : "/"} category={data.microcmsPosts.category?.id || "default"} parentTitle={data.microcmsPosts.category?.name || "ホーム"} title={data.microcmsPosts.title} sub={true}>
-          <time dateTime={data.microcmsPosts.date}>{data.microcmsPosts.date}</time>
-          <ul className="cat_list">
-            <li className={data.microcmsPosts.category.id}>
-              <Link to={"/category/" + data.microcmsPosts.category.id + "/"}>{data.microcmsPosts.category.id}</Link>
-            </li>
-          </ul>
-          {data.microcmsPosts.eyecatch && (
-            <div className="eyecatch_img">
-              <img src={data.microcmsPosts.eyecatch.url + "?fm=webp"} width={data.microcmsPosts.eyecatch.width} height={data.microcmsPosts.eyecatch.height} alt={data.microcmsPosts.title + "サムネイル画像"} loading="lazy" />
-            </div>
-          )}
-          <div
-            className="post_main_box"
-            dangerouslySetInnerHTML={{
-              __html: `${data.microcmsPosts.content}`,
-            }}
-          />
-        </Article>
+      <Layout className="column-page">
+        <div className="main-content">
+          <Article id={`${data.microcmsPosts.category?.id || "default"}page`} slug={data.microcmsPosts.category?.id ? `/category/${data.microcmsPosts.category.id}/` : "/"} category={data.microcmsPosts.category?.id || "default"} parentTitle={data.microcmsPosts.category?.name || "ホーム"} title={data.microcmsPosts.title} sub={true} mokuji={true}>
+            <time dateTime={data.microcmsPosts.date}>{data.microcmsPosts.date}</time>
+            <ul className="cat_list">
+              <li className={data.microcmsPosts.category.id}>
+                <Link to={"/category/" + data.microcmsPosts.category.id + "/"}>{data.microcmsPosts.category.id}</Link>
+              </li>
+            </ul>
+            {data.microcmsPosts.eyecatch && (
+              <div className="eyecatch_img">
+                <img src={data.microcmsPosts.eyecatch.url + "?fm=webp"} width={data.microcmsPosts.eyecatch.width} height={data.microcmsPosts.eyecatch.height} alt={data.microcmsPosts.title + "サムネイル画像"} loading="lazy" />
+              </div>
+            )}
+            <div
+              className="post_main_box"
+              dangerouslySetInnerHTML={{
+                __html: `${data.microcmsPosts.content}`,
+              }}
+            />
+          </Article>
+        </div>
       </Layout>
     </>
   )
