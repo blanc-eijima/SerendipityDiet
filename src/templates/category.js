@@ -8,7 +8,6 @@ import dayjs from "dayjs"
 import "dayjs/locale/ja"
 import utc from "dayjs/plugin/utc"
 import timezone from "dayjs/plugin/timezone"
-import Section from "../components/Section"
 import BreadCrumb from "../components/BreadCrumb"
 import Aside from "../components/Aside"
 
