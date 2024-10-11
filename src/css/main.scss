@@ -1572,7 +1572,7 @@ section#subpage > .svg_bg {
       @media not screen and (min-width: 1025px) {
         width: 100%;
       }
-      h2 {
+      h2.subtitle {
         font-size: 2.4rem;
       }
     }
@@ -1585,7 +1585,7 @@ section#subpage > .svg_bg {
       figure,
       .eyecatch_img {
         max-width: 700px;
-        margin: 20px auto;
+        margin: 40px auto;
       }
     }
     aside {
@@ -2454,6 +2454,20 @@ textarea:focus::placeholder {
 }
 
 .post_main_box {
+  h2 {
+    margin: 40px 0 20px 0;
+    border-bottom: solid 2px var(--color-theme);
+    padding: 10px;
+    background-color: var(--color-black);
+    font-family: var(--font-base);
+    font-size: 3rem;
+  }
+  h3 {
+    color: var(--color-theme-light);
+    font-family: var(--font-base);
+    font-weight: 900;
+    font-size: 3rem;
+  }
   figure {
     margin: 40px auto;
     img {

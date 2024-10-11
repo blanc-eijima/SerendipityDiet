@@ -143,7 +143,7 @@ const CategoryPage = ({ data, pageContext }) => {
               {Object.entries(groupedPosts).map(([categoryId, posts]) => (
                 <React.Fragment key={categoryId}>
                   <h1>オンラインダイエットコラム</h1>
-                  <h2>効果的なダイエットの秘訣：専門家が贈る最新情報とアドバイス</h2>
+                  <h2 className="subtitle">効果的なダイエットの秘訣：専門家が贈る最新情報とアドバイス</h2>
                   <div className="post_list">
                     {posts.map(({ node }, index) => {
                       const content = stripHTML(node.content)
