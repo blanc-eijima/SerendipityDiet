@@ -96,7 +96,13 @@ const Index = ({ data }) => {
   const silverImageData = getImageData(data.allFile, "course_silver.jpg")
   const goldImageData = getImageData(data.allFile, "course_gold.jpg")
   const platinumImageData = getImageData(data.allFile, "course_platinum.jpg")
-
+  // スマホかどうかを判定する関数
+  const isMobile = () => {
+    if (typeof window !== "undefined") {
+      return window.innerWidth <= 768 // 768px以下をスマホと判定
+    }
+    return false
+  }
   return (
     <>
       <Layout>
@@ -107,6 +113,11 @@ const Index = ({ data }) => {
               <br />
               セレンディピティ
             </h1>
+            {isMobile() && (
+              <>
+                <h2 className="mobile-only">たった3ヵ月で、驚きの成果を実感！</h2>
+              </>
+            )}
             <h2>
               究極の個別オンラインダイエット
               <br className="smp" />

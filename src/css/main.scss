@@ -934,7 +934,22 @@ section > div.svg_bg {
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
-
+    .mobile-only {
+      font-family: "Noto Sans JP", sans-serif;
+      font-weight: 900;
+      color: var(--color-black);
+      text-shadow: initial;
+      display: inline-block;
+      background-color: #fff361;
+      padding: 2px 5px;
+      line-height: 1.5;
+      margin: 0;
+      font-size: 2rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      text-align: center;
+    }
     @media not screen and (min-width: 1025px) {
       padding: 40px;
     }
@@ -945,7 +960,7 @@ section > div.svg_bg {
       width: 100%;
       padding: 20px;
       text-align: right;
-      text-shadow: 1px 1px 2px black;
+      text-shadow: 1px 2px 0px black;
       display: flex;
       align-items: flex-end;
       flex-direction: column;
@@ -2603,10 +2618,9 @@ textarea:focus::placeholder {
   z-index: 100;
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
   width: 100%;
   li {
-    width: calc((100% - 5px * 1) / 2);
+    width: calc(100% / 2);
     text-align: center;
 
     a {
@@ -2616,11 +2630,13 @@ textarea:focus::placeholder {
       a {
         background-color: var(--color-green);
         padding: 10px;
-        display: block;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
         color: #fff;
         font-weight: 600;
-        border-top: var(--color-base) solid 3px;
-        border-right: var(--color-base) solid 3px;
         .fa-envelope {
           margin-right: 5px;
         }
@@ -2630,11 +2646,12 @@ textarea:focus::placeholder {
       a {
         background-color: var(--color-theme);
         padding: 10px;
-        display: block;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
         color: #fff;
         font-weight: 600;
-        border-top: var(--color-base) solid 3px;
-        border-left: var(--color-base) solid 3px;
         .fa-phone {
           margin-right: 5px;
         }
