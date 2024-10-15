@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Section from "../components/Section"
@@ -76,6 +76,21 @@ export const query = graphql`
 `
 
 const Index = ({ data }) => {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+
+    checkIsMobile()
+    window.addEventListener("resize", checkIsMobile)
+
+    return () => {
+      window.removeEventListener("resize", checkIsMobile)
+    }
+  }, [])
+
   const [openId, setOpenId] = useState(null)
   const getImageData = (allFile, filename) => {
     const file = allFile.edges.find(({ node }) => node.base === filename)
@@ -96,13 +111,7 @@ const Index = ({ data }) => {
   const silverImageData = getImageData(data.allFile, "course_silver.jpg")
   const goldImageData = getImageData(data.allFile, "course_gold.jpg")
   const platinumImageData = getImageData(data.allFile, "course_platinum.jpg")
-  // スマホかどうかを判定する関数
-  const isMobile = () => {
-    if (typeof window !== "undefined") {
-      return window.innerWidth <= 768 // 768px以下をスマホと判定
-    }
-    return false
-  }
+
   return (
     <>
       <Layout>
@@ -113,7 +122,7 @@ const Index = ({ data }) => {
               <br />
               セレンディピティ
             </h1>
-            {isMobile() && (
+            {isMobile && (
               <>
                 <h2 className="mobile-only">たった3ヵ月で、驚きの成果を実感！</h2>
               </>
