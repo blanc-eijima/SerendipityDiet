@@ -176,9 +176,6 @@ const Plan = ({ data }) => {
           <p>運動・食生活・生活リズムなどをどのようにしていくかをあなたの経験やライフスタイルに合わせてアドバイスいたします。</p>
 
           <p>かなり運動慣れしている方や自宅トレーニングもしくはジム通いに慣れている方などが選択していくコースです。</p>
-
-          <p>基本的にはビデオ通話（LINE・Skypeなど）ですが、音声通話（固定電話・携帯電話）でも対応可能です。</p>
-
           <div className="paypal-bt" id="paypal-button-container-P-6TT26072SP350245JMW5RCVY"></div>
         </PlanBox>
         <PlanBox course="gold" title="ゴールドコース" price="29,800" imageData={goldImageData} recommended={true}>
