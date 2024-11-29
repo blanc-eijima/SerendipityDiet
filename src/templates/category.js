@@ -1,37 +1,38 @@
-import React from "react";
-import { graphql, Link } from "gatsby";
+import React from "react"
+import { graphql, Link } from "gatsby"
 
-import Seo from "../components/Seo";
-import Layout from "../components/Layout";
+import Seo from "../components/Seo"
+import Layout from "../components/Layout"
 
-import dayjs from "dayjs";
-import "dayjs/locale/ja";
-import utc from "dayjs/plugin/utc";
-import timezone from "dayjs/plugin/timezone";
-import Section from "../components/Section";
+import dayjs from "dayjs"
+import "dayjs/locale/ja"
+import utc from "dayjs/plugin/utc"
+import timezone from "dayjs/plugin/timezone"
+import BreadCrumb from "../components/BreadCrumb"
+import Aside from "../components/Aside"
 
 const pagemeta = {
   title: `オンラインダイエット｜最強に痩せる食事と運動を指導する究極のプログラム`,
   description: `究極オンラインダイエット指導。簡単でも効率的に痩せていける食事指導。60分の運動でも痩せやすい身体を創るトレーニング指導。食事と運動の効果を更に向上させる生活テクニックを伝授。`,
   keyword: `オンラインダイエット,ダイエットプログラム,セレンディピティ,栄養管理,運動プラン,パーソナルコーチ,ダイエットコーチ,コーチング,健康的なライフスタイル,持続可能なダイエット`,
-};
+}
 
-dayjs.extend(utc);
-dayjs.extend(timezone);
-dayjs.tz.setDefault("Asia/Tokyo");
+dayjs.extend(utc)
+dayjs.extend(timezone)
+dayjs.tz.setDefault("Asia/Tokyo")
 
-const MAX_CONTENT_LENGTH = 30; // 最大文字数を設定してください
+const MAX_CONTENT_LENGTH = 50 // 最大文字数を設定してください
 
 const groupPostsByCategory = (posts) => {
   return posts.reduce((acc, post) => {
-    const categoryId = post.node.category.id;
+    const categoryId = post.node.category.id
     if (!acc[categoryId]) {
-      acc[categoryId] = [];
+      acc[categoryId] = []
     }
-    acc[categoryId].push(post);
-    return acc;
-  }, {});
-};
+    acc[categoryId].push(post)
+    return acc
+  }, {})
+}
 
 export const query = graphql`
   query ($categoryId: String, $limit: Int, $skip: Int) {
@@ -65,7 +66,7 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
 const getJsonLd = (data, siteMetadata, currentPage) => ({
   "@context": "https://schema.org",
@@ -82,15 +83,15 @@ const getJsonLd = (data, siteMetadata, currentPage) => ({
         {
           "@type": "ListItem",
           position: 2,
-          item: `${siteMetadata.siteUrl}category/${data.allMicrocmsPosts.edges[0].node.category.id}/${currentPage > 1 ? currentPage : ""}/`,
+          item: `${siteMetadata.siteUrl}/category/${data.allMicrocmsPosts.edges[0].node.category.id}/${currentPage > 1 ? currentPage : ""}`,
           name: `${data.allMicrocmsPosts.edges[0].node.category.name}｜${currentPage > 1 ? "ページ" + currentPage : ""}`,
         },
       ],
     },
     {
       "@type": "WebPage",
-      "@id": `${siteMetadata.siteUrl}category/${data.allMicrocmsPosts.edges[0].node.category.id}/`,
-      url: `${siteMetadata.siteUrl}category/${data.allMicrocmsPosts.edges[0].node.category.id}/`,
+      "@id": `${siteMetadata.siteUrl}/category/${data.allMicrocmsPosts.edges[0].node.category.id}/`,
+      url: `${siteMetadata.siteUrl}/category/${data.allMicrocmsPosts.edges[0].node.category.id}/`,
       name: data.allMicrocmsPosts.edges[0].node.category.name,
       description: siteMetadata.defaultDescription,
       inLanguage: "ja",
@@ -113,7 +114,7 @@ const getJsonLd = (data, siteMetadata, currentPage) => ({
       inLanguage: "ja",
     },
   ],
-});
+})
 
 export const Head = ({ data, siteMetadata, pageContext }) => {
   return (
@@ -121,98 +122,108 @@ export const Head = ({ data, siteMetadata, pageContext }) => {
       <Seo title2={`${pagemeta.title}｜${data.allMicrocmsPosts.edges[0].node.category.name}｜${pageContext.currentPage > 1 ? "ページ" + pageContext.currentPage : ""}`} description={pagemeta.description} />
       <script type="application/ld+json">{JSON.stringify(getJsonLd(data, data.site.siteMetadata, pageContext.currentPage))}</script>
     </>
-  );
-};
+  )
+}
 
 const CategoryPage = ({ data, pageContext }) => {
-  dayjs.locale("ja");
-  const { allMicrocmsPosts } = data;
-  const { category, numPages, currentPage, startPage, endPage } = pageContext;
+  dayjs.locale("ja")
+  const { allMicrocmsPosts } = data
+  const { category, numPages, currentPage, startPage, endPage } = pageContext
 
-  const posts = allMicrocmsPosts.edges;
-  const groupedPosts = groupPostsByCategory(posts);
-  const imageName = "news_img";
+  const posts = allMicrocmsPosts.edges
+  const groupedPosts = groupPostsByCategory(posts)
+  const imageName = "news_img"
   return (
     <>
-      <Layout imageName={imageName}>
-        <Section id="subpage" title={data.allMicrocmsPosts.edges[0]?.node.category.id} sub={true}>
-          {Object.entries(groupedPosts).map(([categoryId, posts]) => (
-            <React.Fragment key={categoryId}>
-              <h1>{categoryId}</h1>
-              <div className="post_list">
-                {posts.map(({ node }) => {
-                  const content = stripHTML(node.content);
-                  const displayedContent = content.length > MAX_CONTENT_LENGTH ? content.substring(0, MAX_CONTENT_LENGTH) + "..." : content;
+      <Layout className="column-category" imageName={imageName}>
+        <div className="main-content">
+          <BreadCrumb title="コラム" />
+          <div className="flex-between">
+            <section id="category" title={data.allMicrocmsPosts.edges[0]?.node.category.name} sub={true}>
+              {Object.entries(groupedPosts).map(([categoryId, posts]) => (
+                <React.Fragment key={categoryId}>
+                  <h1>オンラインダイエットコラム</h1>
+                  <h2 className="subtitle">効果的なダイエットの秘訣：専門家が贈る最新情報とアドバイス</h2>
+                  <div className="post_list">
+                    {posts.map(({ node }, index) => {
+                      const content = stripHTML(node.content)
+                      const displayedContent = content.length > MAX_CONTENT_LENGTH ? content.substring(0, MAX_CONTENT_LENGTH) + "..." : content
 
-                  return (
-                    <div className="post_box" key={node.postsId}>
-                      {node.eyecatch ? (
-                        <div className="post_thumb">
-                          <Link to={"/posts/" + node.postsId + "/"} className="thumb_img">
-                            <img src={node.eyecatch.url + "?fm=webp"} width={276} height={209} alt={node.title + "サムネイル画像"} loading="lazy" />
-                          </Link>
+                      return (
+                        <div className="post_box" key={node.postsId}>
+                          <div className="post_box_inner">
+                            {node.eyecatch ? (
+                              <div className="post_thumb">
+                                <Link to={"/posts/" + node.postsId + "/"} className="thumb_img">
+                                  <img src={node.eyecatch.url + "?fm=webp"} width={276} height={209} alt={node.title + "サムネイル画像"} loading="lazy" />
+                                </Link>
+                              </div>
+                            ) : (
+                              <div className="post_thumb">
+                                <Link to={"/posts/" + node.postsId + "/"} className="thumb_img">
+                                  <img src="/images/eyecatch_01.jpg" width={276} height={209} alt={node.title + "の代替画像"} loading="lazy" />
+                                </Link>
+                              </div>
+                            )}
+                            <div className="post_txt_box">
+                              <time dateTime={node.date}>{node.date}</time>
+                              <br />
+                              <h3>
+                                <Link to={"/posts/" + node.postsId + "/"}>{node.title}</Link>
+                              </h3>
+                              <h4>{displayedContent}</h4>
+                            </div>
+                          </div>
                         </div>
-                      ) : (
-                        <div className="post_thumb">
-                          <Link to={"/posts/" + node.postsId + "/"} className="thumb_img">
-                            <img src="/images/eyecatch_01.jpg" width={276} height={209} alt={node.title + "の代替画像"} loading="lazy" />
-                          </Link>
-                        </div>
-                      )}
-                      <div className="post_txt">
-                        <time dateTime={node.date}>{node.date}</time>
-                        <br />
-                        <Link to={"/posts/" + node.postsId + "/"}>{node.title}</Link>
-                        <br />
-                        {displayedContent}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </React.Fragment>
-          ))}
+                      )
+                    })}
+                  </div>
+                </React.Fragment>
+              ))}
 
-          {numPages > 1 && (
-            <div className="pager">
-              {currentPage > 1 && (
-                <Link className="prev" to={currentPage === 2 ? `/category/${category.categoryId}` : `/category/${category.categoryId}/${currentPage - 1}`}>
-                  &lt;&lt; 前へ
-                </Link>
-              )}
-
-              {/* ページャーの数字を表示 */}
-              {Array.from({ length: 5 }, (_, i) => {
-                const pageNumber = startPage + i; // ページャーの数字を計算
-                if (pageNumber <= endPage) {
-                  return (
-                    <Link key={`pagination-link${pageNumber}`} to={pageNumber === 1 ? `/category/${category.categoryId}` : `/category/${category.categoryId}/${pageNumber}`} className={pageNumber === currentPage ? "current" : ""}>
-                      {pageNumber}
+              {numPages > 1 && (
+                <div className="pager">
+                  {currentPage > 1 && (
+                    <Link className="prev" to={currentPage === 2 ? `/category/${category.categoryId}` : `/category/${category.categoryId}/${currentPage - 1}`}>
+                      &lt;&lt; 前へ
                     </Link>
-                  );
-                }
-                return null;
-              })}
+                  )}
 
-              {currentPage < numPages && (
-                <Link className="next" to={`/category/${category.categoryId}/${currentPage + 1}`}>
-                  次へ &gt;&gt;
-                </Link>
+                  {/* ページャーの数字を表示 */}
+                  {Array.from({ length: 5 }, (_, i) => {
+                    const pageNumber = startPage + i // ページャーの数字を計算
+                    if (pageNumber <= endPage) {
+                      return (
+                        <Link key={`pagination-link${pageNumber}`} to={pageNumber === 1 ? `/category/${category.categoryId}` : `/category/${category.categoryId}/${pageNumber}`} className={pageNumber === currentPage ? "current" : ""}>
+                          {pageNumber}
+                        </Link>
+                      )
+                    }
+                    return null
+                  })}
+
+                  {currentPage < numPages && (
+                    <Link className="next" to={`/category/${category.categoryId}/${currentPage + 1}`}>
+                      次へ &gt;&gt;
+                    </Link>
+                  )}
+                </div>
               )}
-            </div>
-          )}
-        </Section>
+            </section>
+            <Aside />
+          </div>
+        </div>
       </Layout>
     </>
-  );
-};
+  )
+}
 
 // HTMLタグを削除する関数
 function stripHTML(input) {
   if (input === null || input === undefined) {
-    return "";
+    return ""
   }
-  return input.replace(/<[^>]*>?/gm, "");
+  return input.replace(/<[^>]*>?/gm, "")
 }
 
-export default CategoryPage;
+export default CategoryPage

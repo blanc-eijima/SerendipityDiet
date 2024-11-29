@@ -1,26 +1,26 @@
-import React, { useState } from "react";
-import { Link, graphql } from "gatsby";
-import Layout from "../components/Layout";
-import Section from "../components/Section";
-import CourseBox from "../components/CourseBox";
-import Seo from "../components/Seo";
-import TopColumn from "../components/TopColumn";
-import FaqTxt from "../components/FaqTxt";
+import React, { useState, useEffect } from "react"
+import { Link, graphql } from "gatsby"
+import Layout from "../components/Layout"
+import Section from "../components/Section"
+import CourseBox from "../components/CourseBox"
+import Seo from "../components/Seo"
+import TopColumn from "../components/TopColumn"
+import FaqTxt from "../components/FaqTxt"
 
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import { GatsbyImage } from "gatsby-plugin-image";
+import "@fortawesome/fontawesome-svg-core/styles.css"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCheck } from "@fortawesome/free-solid-svg-icons"
+import { GatsbyImage } from "gatsby-plugin-image"
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper-bundle.min.css";
-import { EffectFade, Autoplay } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react"
+import "swiper/swiper-bundle.min.css"
+import { EffectFade, Autoplay } from "swiper"
 
 const pagemeta = {
-  title: `オンラインダイエットコーチング 全国対応 セレンディピティダイエット`, //このページのタイトル
-  description: `オンラインダイエットコーチングで理想の体型を手に入れよう。30代40代の悩みを解消し、健康的に美しく痩せるための食事と運動習慣をサポート。6ヵ月〜1年で卒業できる究極のダイエットプログラムです。`, //このページのディスクリプション
+  title: `オンラインダイエットコーチング 全国対応 3ヵ月で絶大成果のパーソナルダイエット指導`, //このページのタイトル
+  description: `オンラインダイエットコーチングの究極パーソナルダイエット指導はスマホがあれば究極のテクニックを身につけることができます。3ヵ月の絶大成果で婚活バッチリ、産後太りも解消。`, //このページのディスクリプション
   keyword: `オンラインダイエット,ダイエットプログラム,セレンディピティ,栄養管理,運動プラン,パーソナルコーチ,ダイエットコーチ,コーチング,健康的なライフスタイル,持続可能なダイエット`,
-};
+}
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -50,7 +50,7 @@ const jsonLd = {
       inLanguage: "ja",
     },
   ],
-};
+}
 
 export const Head = () => (
   <>
@@ -58,7 +58,7 @@ export const Head = () => (
     <Seo title2={pagemeta.title} description={pagemeta.description} keyword={pagemeta.keyword} />
     <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
   </>
-);
+)
 
 export const query = graphql`
   query {
@@ -73,29 +73,44 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
 const Index = ({ data }) => {
-  const [openId, setOpenId] = useState(null);
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+
+    checkIsMobile()
+    window.addEventListener("resize", checkIsMobile)
+
+    return () => {
+      window.removeEventListener("resize", checkIsMobile)
+    }
+  }, [])
+
+  const [openId, setOpenId] = useState(null)
   const getImageData = (allFile, filename) => {
-    const file = allFile.edges.find(({ node }) => node.base === filename);
-    return file.node.childImageSharp.gatsbyImageData;
-  };
-  const slide1ImageData = getImageData(data.allFile, "top_slide01.jpg");
-  const slide2ImageData = getImageData(data.allFile, "top_slide02.jpg");
-  const slide3ImageData = getImageData(data.allFile, "top_slide03.jpg");
-  const slide4ImageData = getImageData(data.allFile, "top_slide04.jpg");
-  const slide5ImageData = getImageData(data.allFile, "top_slide05.jpg");
+    const file = allFile.edges.find(({ node }) => node.base === filename)
+    return file.node.childImageSharp.gatsbyImageData
+  }
+  const slide1ImageData = getImageData(data.allFile, "top_slide01.jpg")
+  const slide2ImageData = getImageData(data.allFile, "top_slide02.jpg")
+  const slide3ImageData = getImageData(data.allFile, "top_slide03.jpg")
+  const slide4ImageData = getImageData(data.allFile, "top_slide04.jpg")
+  const slide5ImageData = getImageData(data.allFile, "top_slide05.jpg")
 
-  const main2ImageData = getImageData(data.allFile, "main_diet_02.jpg");
-  const main3ImageData = getImageData(data.allFile, "main_diet_03.jpg");
+  const main2ImageData = getImageData(data.allFile, "main_diet_02.jpg")
+  const main3ImageData = getImageData(data.allFile, "main_diet_03.jpg")
 
-  const voiceBefore = getImageData(data.allFile, "voice_before_01.jpg");
-  const voiceAfter = getImageData(data.allFile, "voice_after_01.jpg");
+  const voiceBefore = getImageData(data.allFile, "voice_before_01.jpg")
+  const voiceAfter = getImageData(data.allFile, "voice_after_01.jpg")
 
-  const silverImageData = getImageData(data.allFile, "course_silver.jpg");
-  const goldImageData = getImageData(data.allFile, "course_gold.jpg");
-  const platinumImageData = getImageData(data.allFile, "course_platinum.jpg");
+  const silverImageData = getImageData(data.allFile, "course_silver.jpg")
+  const goldImageData = getImageData(data.allFile, "course_gold.jpg")
+  const platinumImageData = getImageData(data.allFile, "course_platinum.jpg")
 
   return (
     <>
@@ -107,6 +122,11 @@ const Index = ({ data }) => {
               <br />
               セレンディピティ
             </h1>
+            {isMobile && (
+              <>
+                <h2 className="mobile-only">たった3ヵ月で、驚きの成果を実感！</h2>
+              </>
+            )}
             <h2>
               究極の個別オンラインダイエット
               <br className="smp" />
@@ -115,9 +135,9 @@ const Index = ({ data }) => {
               全国対応
             </h2>
             <p>
-              美しいボディラインを創りながら痩せていくことこれこそ私がお伝えしていくダイエット法です。
+              健康で美しいボディラインを創りながら痩せていくことこれこそ私がお伝えしていくダイエット法です。
               <br />
-              この先で継続していける能力を身につけて“6ヵ月～1年”の間に卒業していってもらうこと”をコンセプトに掲げております。
+              3ヵ月で絶大な成果。そして、うまく継続できるテクニックを伝えることがコンセプト。
             </p>
           </div>
           <div className="main_v_l"></div>
@@ -140,8 +160,7 @@ const Index = ({ data }) => {
                   slidesPerView: 1,
                 },
               }}
-              slidesPerView={1}
-            >
+              slidesPerView={1}>
               <SwiperSlide>
                 <GatsbyImage image={slide1ImageData} alt="" />
               </SwiperSlide>
@@ -217,9 +236,11 @@ const Index = ({ data }) => {
                 <br />
                 正しいダイエットは運動と食事だけではなく生活のあらゆることと繋がっております。
                 <br />
-                その生活習慣と継続していける能力を身につけて６ヵ月～１年の間に
+                まずは3ヵ月で絶大な成果を出していただき、そしてその後も
                 <br />
-                卒業していってもらいます。これが私のコンセプトです。
+                継続していけるテクニックを身につけていただきます。
+                <br />
+                これが私のコンセプトです。
               </p>
               <p>
                 私は「本当のダイエットは、美しい見た目と健康とともにあるべき」だと考えております。
@@ -295,7 +316,7 @@ const Index = ({ data }) => {
 
           <div className="qa-container">
             <FaqTxt no="1" title="ビデオ通話での１回の通話時間はどれくらいですか？" openId={openId} setOpenId={setOpenId}>
-              基本的には30分～40分の間です。長く話をすれば良いと言うものではなく、現状に対しての大事な要点を端的に話していきます。初回は長めに時間をとってもらうことが多いです。
+              基本的には60分です。長く話をすれば良いと言うものではなく、現状に対しての大事な要点を端的に話していきます。初回は更に長めに時間をとってもらうことが多いです。
             </FaqTxt>
 
             <FaqTxt no="2" title="仕事の休憩時間や喫茶店から、移動時間や待ち時間などの隙間時間なでもビデオ通話を受けてもらえますか？" openId={openId} setOpenId={setOpenId}>
@@ -307,11 +328,11 @@ const Index = ({ data }) => {
             </FaqTxt>
 
             <FaqTxt no="4" title="オンラインダイエットの月額の料金以外にもお金はかかってきますか？" openId={openId} setOpenId={setOpenId}>
-              お金はかかります。トレーニングウエアやシューズ、その他の消耗品などを購入する費用。ジムへ通ったりする費用や移動費が代表的な費用です。
+              お金はかかります。トレーニングウエアやシューズ、その他の消耗品などを購入する費用。ジムへ通う場合は、その費用や移動費が代表的な費用です。自宅トレーニングを行う場合は、自宅に簡単な器具を揃えたりするとその費用がかかってきます。
             </FaqTxt>
 
-            <FaqTxt no="5" title="がんばれば一ヵ月で理想の体型になることは可能ですか？" openId={openId} setOpenId={setOpenId}>
-              それまでの過程と環境によるので一概には言えませんが、これからダイエットを始めようとする人は一ヵ月で理想の体型になることは厳しいです。６ヵ月以上の長期戦で考えてください。１ヵ月で落ちてよいのは体重の５％が限度です。最初は体重を落とすよりも脂肪を燃やせる身体を創ることに重点を置かないといけないので短期戦ではないのです。ダイエットはその時だけ行うものではなく生活習慣と思ってください。
+            <FaqTxt no="5" title="がんばれば1ヵ月で理想の体型になることは可能ですか？" openId={openId} setOpenId={setOpenId}>
+              それまでの過程と環境によるので一概には言えませんが、これからダイエットを始めようとする人は1ヵ月で理想の体型になることは厳しい場合が多いです。3ヵ月は必要だと考えてください。最初は体重を落とすよりも脂肪を燃やせる身体を創ることに重点を置くことだ大事です。ダイエットはその時だけ行うものではなく生活習慣を身につけると思ってください。
             </FaqTxt>
 
             <FaqTxt no="6" title="食事制限は必要ですか？" openId={openId} setOpenId={setOpenId}>
@@ -323,11 +344,11 @@ const Index = ({ data }) => {
             </FaqTxt>
 
             <FaqTxt no="8" title="１回の運動時間はどれくらいが理想ですか？" openId={openId} setOpenId={setOpenId}>
-              約60分くらいです。ダイエットを成功させる運動（トレーニング）は長時間行えば良いというものではなく、結果に繋がる正しいことを効率的にできているかが重要です。変化をつけるために運動の時間を時々長くすることも良いですが、そもそも人間の集中力は何時間も持つものではありません。最初は時間がかかったとしても６０分くらいでタンッ！タンッ！タンッ！と進めていくほうが効率的なのです。
+              最初は時間がかかったとしても60分くらいでタンッ！タンッ！タンッ！と進めていくほうが効率的なのです。
             </FaqTxt>
 
             <FaqTxt no="9" title="運動は週に何回くらい行えば良いですか？" openId={openId} setOpenId={setOpenId}>
-              時と場合と状況によって変わりますが週に４回くらいの運動で継続するのが理想です。むやみに毎日行えば良いというものではありません。身体は休ませることも必要です。大切なことは正しいトレーニング（運動）を行えているかと継続できているかです。
+              時と場合と状況によって変わりますが週に3回もしくは4回くらいの運動で継続するのが理想です。
             </FaqTxt>
 
             <FaqTxt no="10" title="自宅トレーニングでもダイエットを成功させることができますか？" openId={openId} setOpenId={setOpenId}>
@@ -343,8 +364,8 @@ const Index = ({ data }) => {
         <Section id="course">
           <h2>オンラインダイエット PLAN</h2>
           <div className="flex-wrap">
-            <CourseBox course="silver" title="シルバーコース" courseTxt="数年間ダイエットを真剣に継続していて、運動熟練者なのに何故か思うようにうまくいかない方のコース。" imageData={silverImageData} />
-            <CourseBox course="gold" title="ゴールドコース" courseTxt="いろいろ試したし食事も運動もそれなりに気を遣ったのに続かなかったり、うまくいかなかった方のコース。" imageData={goldImageData} />
+            <CourseBox course="silver" title="シルバーコース" courseTxt="数年間ダイエットを真剣に継続していて、運動熟練者なのに何故か思うようにうまくいかない方にお勧めのコース。" imageData={silverImageData} />
+            <CourseBox course="gold" title="ゴールドコース" courseTxt="いろいろ試したし食事も運動もそれなりに気を遣ったのに続かなかったり、うまくいかなかった方にお勧めのコース。" imageData={goldImageData} recommended={true} />
             <CourseBox course="platinum" title="プラチナコース" courseTxt="着実に知識をつけていきながら確実に結果を残していきたい方にお勧め。最短で結果へ導く究極のコースです！！" imageData={platinumImageData} />
           </div>
         </Section>
@@ -392,7 +413,7 @@ const Index = ({ data }) => {
         </Section>
       </Layout>
     </>
-  );
-};
+  )
+}
 
-export default Index;
+export default Index
